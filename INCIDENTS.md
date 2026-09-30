@@ -1,6 +1,6 @@
 # Fallindex
 
-Stand 2026-09-30. Kein Vollständigkeitsanspruch.
+Stand 2026-09-30. Kein Vollständigkeitsanspruch. Die Fehlerfamilien können mehrere Versionen umfassen; Builds derselben Annahme zählen nicht automatisch als unabhängige Ursachen.
 
 | ID | Projekt | Befund |
 |---|---|---|
@@ -12,8 +12,17 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch.
 | 006 | TimTime | Unity-Plattformbuilds mit nachgewiesenem Gerätezugriff vermischt. |
 | 007 | CarreraMod | Fahrzeugbild-Crash einer falschen Ursache zugeschrieben; Korrektur scheiterte erneut. |
 | 008 | CarreraMod / TimTime | Pairing-Fehler zunächst der falschen Seite zugeordnet; 1.6.70 scheiterte auch im App-Pfad. |
-| 009 | CarreraMod / TimTime | Ziellinienereignisse gingen verloren; alte Warteschlangenereignisse konnten einer verwaisten Session folgen. |
+| 009 | CarreraMod / TimTime | Ziellinienereignisse gingen verloren; alte Queue-Ereignisse liefen in eine verwaiste Session. |
 | 010 | CarreraMod | APK-Verpackungsfehler ließ Datei von etwa 135 MB auf etwa 299 MB anwachsen. |
-| 011 | CarreraMod | Sieben frühe Testbuilds stürzten auf Geräten ab oder wurden zurückgezogen; Root Causes teils offen. |
+| 011 | CarreraMod | Sieben frühe Testbuilds stürzten ab oder wurden zurückgezogen. |
+| 012 | CarreraMod | Zwölf wiederholte ARMv7-Versuche derselben Absturzklasse plus späterer fehlgeschlagener Versuch. |
+| 013 | CarreraMod | Fahrzeugdaten wurden geladen, aber Fahrzeuge fehlten oder zeigten schwarz. |
+| 014 | CarreraMod | Wiederholte Guest-Login-Eingriffe blockierten den Herstellerpfad. |
+| 015 | CarreraMod | Als saubere/known-good Basis ausgegebene APKs blockierten weiterhin Guest. |
+| 016 | CarreraMod | Native Bibliotheksersetzung brach Logger/BANDEN; Folgefix stürzte via JNI ab. |
+| 017 | CarreraMod | Als vollständig bezeichneter JSON-Vertrag hatte fehlenden JNI-Pfad und globale Sperrregression. |
+| 018 | CarreraMod | API-Auswahl war gespeichert, aber nicht rechtzeitig auf echte Requests angewendet. |
+| 019 | CarreraMod | DEX-Registerfehler machte Driver-Debug-Klasse unverifizierbar. |
+| 020 | CarreraMod | ARMv7-Firmware-Guard verletzte den Task<bool>-Rückgabevertrag. |
 
-Mehrere Builds derselben widerlegten Annahme zählen nicht automatisch als unabhängige Fälle.
+Die 226 gescannten Versionsdokumente enthalten auch Fortschritts- und Abnahmeberichte; die Zahl 226 ist keine Fehlerzahl. Die Fallberichte trennen belegte Fehler, Folgeversuche und offene Ursachen.

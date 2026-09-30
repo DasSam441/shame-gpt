@@ -1,13 +1,13 @@
-# 013 — TimTime-Fahrzeugimport: Daten geladen, Autos trotzdem nicht sichtbar
+# 013 — TimTime vehicle data loaded, but the cars were still not visible
 
-**Befund:** zwei dokumentierte, unterschiedliche Importfehler.
+**Finding:** two documented, distinct import failures.
 
-Bei 1.2.67 wurden TimTime-Freigaben und Bilder im Live-Test geladen, die Fahrzeuge erschienen aber nicht in Carreras originaler Unity-Liste. Der Build wurde nicht freigegeben.
+In 1.2.67, the live test loaded TimTime permissions and images, but the vehicles did not appear in Carrera’s original Unity list. The build was not approved.
 
-Bei 1.2.80 war die Geräteansicht schwarz. Die Korrekturdokumentation benennt die Ursache: Die Carrera-Katalog-ID wurde in TechnicalName statt in das Id-Feld geschrieben. Der Stand wurde zurückgezogen.
+In 1.2.80, the device showed a black view. The correction note identifies the cause: the Carrera catalog ID was written to `TechnicalName` instead of the `Id` field. That build was withdrawn.
 
-**Technische Erklärung:** Manifest-/Bildabruf war nicht gleichbedeutend mit erfolgreicher Anlage eines gültigen Carrera-Racer-Datensatzes. Im zweiten Fall belegte das Gerät einen konkreten Feldzuordnungsfehler im Objektmodell.
+**Technical explanation:** Fetching a manifest and images did not establish that a valid Carrera Racer record had been created. In the second case, the device finding identified a concrete field-mapping error in the object model.
 
-**Warum mein Fehler:** Ich behandelte erfolgreiche Datenabrufe und vorhandene Hookpfade als Fortschritt, bevor die resultierende Fahrzeugliste und ihre Darstellung auf dem Gerät funktionierten.
+**Why this was my mistake:** I treated successful data fetches and existing hook paths as progress before the resulting vehicle list and rendering worked on-device.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.2.67_TIMTIME_FILTER_TEST.md und docs/CARRERAMOD_1.2.80_RACERCONTROLLER_ERSTVERSUCH.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.2.67_TIMTIME_FILTER_TEST.md` and `docs/CARRERAMOD_1.2.80_RACERCONTROLLER_ERSTVERSUCH.md`.

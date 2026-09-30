@@ -27,5 +27,8 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch. Die Fehlerfamilien können meh
 | 021 | CarreraMod | Apktool ließ Pairing-DEX fehlen oder überschrieb ihn in zwei Builds. |
 | 022 | CarreraMod | Dalvik-Registerfehler erzeugte zwei nicht startfähige Debug-APKs. |
 | 023 | CarreraMod | 1.6.74 Logger-SIGILL, 1.6.75 abgeschnittener GCHandle, 1.6.76 Multidex-Lücke (interner Kandidat). |
+| 024 | NanoRacer / Android | Installationshilfe erfolglos; Zahlungsprofil-Pflicht zu spät geprüft; unbelegte Adress-/Profilvermutung. |
 
 Die 226 gescannten Versionsdokumente enthalten auch Fortschritts- und Abnahmeberichte; die Zahl 226 ist keine Fehlerzahl. Die Fallberichte trennen belegte Fehler, Folgeversuche und offene Ursachen.
+
+[Bericht 024: Android-Installation und Registrierung](incidents/024-nanoracer-android-installation-registrierung.md)

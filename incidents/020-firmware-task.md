@@ -1,11 +1,11 @@
-# 020 — ARMv7-Firmware-Guard gab Carreras ursprüngliches Ergebnis nicht zurück
+# 020 — The ARMv7 firmware guard failed to return Carrera’s original result
 
-**Befund:** CarreraMod 1.6.6 war für ARMv7 funktional ungültig und wurde gesperrt.
+**Finding:** CarreraMod 1.6.6 was functionally invalid on ARMv7 and was blocked.
 
-Der Guard an UpdateFirmware.Run prüfte den ARMv7-memset-GOT-Slot, gab aber das ursprüngliche Task<bool> nicht an Carrera zurück. Damit änderte die Schutzroutine den Vertrag der Herstellerfunktion; die Änderung durfte nicht als gültig gelten.
+The guard at `UpdateFirmware.Run` checked the ARMv7 `memset` GOT slot but did not return the original `Task<bool>` to Carrera. The protection routine therefore changed the manufacturer method’s contract; the change could not be treated as valid.
 
-**Technische Erklärung:** Ein Hook um eine asynchrone Methode muss die erwartete Task<bool>-Rückgabe erhalten. Eine Prüfung des GOT-Slots allein reicht nicht, wenn der Wrapper das Ergebnis der Originalfunktion verschluckt.
+**Technical explanation:** A hook around an asynchronous method must preserve the expected `Task<bool>` return. Checking the GOT slot is not enough if the wrapper discards the original function’s result.
 
-**Warum mein Fehler:** Ich konzentrierte mich auf den Speicher-/Hook-Schutz und prüfte nicht, dass der vollständige asynchrone Rückgabevertrag erhalten blieb.
+**Why this was my mistake:** I focused on memory/hook protection and failed to verify that the complete asynchronous return contract was preserved.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.6_ARMV7_FIRMWARE_GUARD_GESPERRT.md.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.6_ARMV7_FIRMWARE_GUARD_GESPERRT.md`.

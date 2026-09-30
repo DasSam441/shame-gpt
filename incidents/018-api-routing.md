@@ -1,13 +1,13 @@
-# 018 — API-Auswahl in TimTime gespeichert, aber in der App zunächst nicht angewendet
+# 018 — The API selection was saved in TimTime but initially not applied in the app
 
-**Befund:** frühe Routingkonfigurationen waren kein Laufzeitnachweis; 1.6.30 installierte den Hook zu spät.
+**Finding:** early routing configuration was not runtime proof; 1.6.30 installed its hook too late.
 
-TimTime lieferte API-Quellen im Mobile-Manifest. In 1.6.29 wurden diese Werte laut späterem Audit noch nicht an einen funktionierenden Unity-Webrequest-Verbraucher weitergegeben. Ein früher Router versuchte außerdem, Sprungcode direkt in eine Unity-Code-Seite zu schreiben; dieser Ansatz stürzte ab und wurde verworfen.
+TimTime supplied API sources through the mobile manifest. A later audit found that 1.6.29 did not pass those values to a working Unity web-request consumer. An earlier router also tried to write branch code directly into a Unity code page; that approach crashed and was discarded.
 
-1.6.30 führte einen neuen SendWebRequest-Hook ein, aber der Gerätetest zeigte anschließend, dass frühe Carrera-Konfigurationsanfragen bereits vor der Hook-Installation liefen und deshalb die Originalquelle verwendeten. Die gespeicherte Portalwahl bewies also nicht, dass Anfragen wirklich umgeleitet waren.
+Version 1.6.30 introduced a `SendWebRequest` hook, but the subsequent device test showed that early Carrera configuration requests had already run before hook installation and therefore used the original source. Saving the portal choice did not prove that requests were redirected.
 
-**Technische Erklärung:** Die Konfiguration wurde erst nach dem Login an den Router übergeben und installiert. Requests, die davor abgingen, liefen weiterhin direkt zum ursprünglichen Host. Ein weiterer früher Ansatz veränderte ausführbaren IL2CPP-Speicher und war als Absturzursache dokumentiert.
+**Technical explanation:** The router received configuration and was installed only after login. Requests made before that continued to the original host. A separate early approach modified executable IL2CPP memory and was documented as a crash cause.
 
-**Warum mein Fehler:** Ich setzte die gespeicherte API-Auswahl und das Vorhandensein eines Hook-Einstiegs zunächst mit wirksamem Routing gleich. Erst der beobachtete UnityWebRequest-Sendepunkt konnte belegen, welche Quelle eine echte Anfrage nutzte.
+**Why this was my mistake:** I initially treated a saved API selection and the presence of a hook entry point as equivalent to working routing. Only observing the actual `UnityWebRequest` send point could establish which source a request used.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_API_ROUTING_REPAIR_2026-08-17.md und docs/CARRERAMOD_1.6.30_API_ROUTING_REPARATUR.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_API_ROUTING_REPAIR_2026-08-17.md` and `docs/CARRERAMOD_1.6.30_API_ROUTING_REPARATUR.md`.

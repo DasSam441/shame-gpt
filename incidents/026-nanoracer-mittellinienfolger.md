@@ -1,23 +1,23 @@
-# 026: Schnellerer Mittellinienfolger verfehlte Racing-Anforderung
+# 026 — The faster centerline follower still missed the racing requirement
 
-Stand: 2026-09-30.
+As of 2026-09-30.
 
-## Aussage und Gegenbefund
+## Claim and counter-evidence
 
-Nach der Tempokorrektur meldete ich „Ist korrigiert und veröffentlicht“ mit 40–47 % kürzeren Rundenzeiten. Darauf fragte der Nutzer, was das für ein Racing-Bot sei, der immer nur in der Mitte fahre. Ich bestätigte: „Der aktuelle Bot ist ein schneller Mittellinienfolger“ und „damit war deine Anforderung an einen Racing-Bot nicht erfüllt“.
+After the pace change, I reported “Fixed and published,” with lap times 40–47% shorter. The user asked what kind of racing bot always drove only in the middle. I confirmed: “The current bot is a fast centerline follower” and “that did not meet your racing-bot requirement.”
 
-## Technischer Fehler
+## Technical failure
 
-Der Bot übernahm ausschließlich `track.centerline` als Grundspur. Vorhandene linke und rechte Streckenränder dienten nicht zur Auswahl einer Rennlinie. Mehr Tempo änderte diesen strukturellen Mangel nicht. Auch eine absichtliche Überholplanung fehlte der ersten Fassung, wie die Projektdokumentation ausdrücklich festhält.
+The bot used only `track.centerline` as its base path. The left and right track edges were not used to select a racing line. More speed did not change this structural limitation. The first implementation also had no deliberate overtaking plan, as the project documentation explicitly records.
 
-Bereits das ursprüngliche Konzept hatte vorausschauendes Fahren und glaubwürdige Zweikämpfe beschrieben. Das anschließend freigegebene erste Online-Teilkonzept war enger und nannte vor allem reguläre Runden und Hindernisbremsen. Deshalb wird hier kein eindeutig nachgewiesener Verstoß gegen eine explizite Erstversions-Überholzusage behauptet. Belegt ist die unzureichend offengelegte Lücke zwischen dem gewünschten Racing-Bot und dem ausgelieferten Mittellinienfolger.
+The original concept had described predictive driving and credible duels. The narrower first online implementation concept approved afterward focused mainly on regular laps and obstacle braking. Therefore this report does not claim a clear violation of an explicit first-version overtaking promise. The documented failure is that I did not clearly disclose the gap between the requested racing bot and the delivered centerline follower.
 
-## Korrektur und Grenze
+## Correction and limit
 
-Erst nach der Kritik folgten eine innerhalb der Streckenbreite optimierte Linie und eine zustandsbehaftete Überholplanung. Sie waren geometrisch auf geringe Krümmung ausgerichtet, nicht nachweislich auf minimale Rundenzeit. Die späteren 54 Fälle/238 Runden und 15 Verkehrsfälle belegten die getesteten Manöver, nicht die geforderte Rekordnähe. Diese blieb unerfüllt (Fall 027).
+Only after the user’s criticism did I add a line optimized within the track width and stateful overtaking. These were geometrically aimed at lower curvature, not demonstrated to minimize lap time. The later 54 cases/238 laps and 15 traffic cases established the tested maneuvers, not the requested proximity to records. That remained unmet (report 027).
 
-## Quellen und Grenzen
+## Sources and limits
 
-Quelle: vollständig durchblätterte Nutzer- und Assistentennachrichten im Chat „Bots für Rennen prüfen“, Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, bis zum Auftrag vom 30.09.2026, auch den übrigen Chat zu dokumentieren. Werkzeugprotokolle wurden gezielt geprüft, nicht jeder Build unabhängig wiederholt. Kurze Chatauszüge werden hier als Primärbelege wiedergegeben; der vollständige private Chat wird nicht gespiegelt.
+Source: user and assistant messages in chat “Check race bots,” thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, read through the user’s 2026-09-30 request to document the rest of the chat. Tool records were checked selectively; not every build was independently repeated. Short excerpts are reproduced as primary evidence; the private chat is not mirrored in full.
 
-Zusätzlicher Projektbeleg: [ONLINE-BOT.md am dokumentierten Release-Commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). Dieser Link kann Repository-Zugriff erfordern. Lokale Evidence-Dateien sind keine öffentlich abrufbaren Belege.
+Additional project evidence: [ONLINE-BOT.md at the documented release commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). This link may require repository access. Local evidence files are not publicly accessible.

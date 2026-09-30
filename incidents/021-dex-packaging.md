@@ -1,16 +1,16 @@
-# 021 — Apktool-Paketierung entfernte den Pairing-/Manifestclient
+# 021 — Apktool packaging removed the pairing/manifest client
 
-**Befund:** zwei getrennte Packagingfehler in CarreraMod 1.6.20 und 1.6.27.
+**Finding:** two separate packaging errors in CarreraMod 1.6.20 and 1.6.27.
 
-Der vollständige Vergleich aller Versionen fand:
+The full version comparison found:
 
-- In 1.6.20 fehlte classes5.dex beim erneuten Apktool-Packen. Der TimTime-Pairing-/Manifestclient war damit nicht im Paket verfügbar.
-- In 1.6.27 wurde classes5.dex beim Einfügen eines Debug-DEX überschrieben. Übrig blieb nur SimulationPlusDebugControl; TimTimeVehicleClient fehlte.
+- In 1.6.20, `classes5.dex` was missing after Apktool repackaging. The TimTime pairing/manifest client was therefore unavailable in the package.
+- In 1.6.27, inserting a debug DEX overwrote `classes5.dex`. Only `SimulationPlusDebugControl` remained; `TimTimeVehicleClient` was missing.
 
-1.6.21 stellte den fehlenden unveränderten Container wieder her. 1.6.28 führte Client und Debugcode im Container zusammen.
+Version 1.6.21 restored the missing unchanged container. Version 1.6.28 combined the client and debug code in that container.
 
-**Technische Erklärung:** Die DEX-Container wurden nicht mit einer vollständigen Soll-Dateiliste gegen das resultierende Paket geprüft. Ein gleich benannter Container wurde überschrieben beziehungsweise beim Packen weggelassen.
+**Technical explanation:** The final package was not checked against a complete expected list of DEX containers. A same-named container was overwritten or omitted during packaging.
 
-**Warum mein Fehler:** Die APK-Prüfungen konzentrierten sich nicht konsequent darauf, dass alle erforderlichen Codecontainer im Endpaket vorhanden und inhaltlich vollständig blieben.
+**Why this was my mistake:** The APK checks did not consistently verify that every required code container remained present and complete in the final package.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1_6_GESAMTAUDIT_2026-08-16.md. Das Dokument zählt die kanonischen APKs 1.6.0–1.6.28 einzeln und fand diese zwei Containerverluste.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1_6_GESAMTAUDIT_2026-08-16.md`. The note counts canonical APKs 1.6.0–1.6.28 and identifies these two container losses.

@@ -1,3 +1,122 @@
-# Incident index  Status as of 2026-09-30. This archive is incomplete. A report may group several occurrences of the same failure family; the report count is not a count of independent root causes.  | ID | Project | Finding | |---|---|---| | 001 | CarreraMod | Version 1.6.25 was described as the ARMv7 fix; later control-flow evidence contradicted that claim. | | 002 | CarreraMod | Static post-race checks were presented as functional proof; several result flows failed. | | 003 | CarreraMod | Multiple delivered JSON fields and switches had no effect. | | 004 | CarreraMod | A signed APK was built although no build had been requested. | | 005 | TimTime | A rough inventory was presented as “point 1”; omissions and conflicting role counts remained. | | 006 | TimTime | Unity platform builds were confused with verified hardware access. | | 007 | CarreraMod | A vehicle-build crash was attributed to the wrong cause; the correction failed again. | | 008 | CarreraMod / TimTime | Pairing failure was first assigned to the wrong side; version 1.6.70 also failed in the app path. | | 009 | CarreraMod / TimTime | Finish-line events were lost; stale queued events reached the wrong session. | | 010 | CarreraMod | APK packaging failure increased the file from about 135 MB to about 299 MB. | | 011 | CarreraMod | Seven early test builds crashed or were withdrawn. | | 012 | CarreraMod | Six repeated ARMv7 attempts shared the crash class; a later attempt also failed. | | 013 | CarreraMod | Vehicle data imported, but vehicles were missing or rendered black. | | 014 | CarreraMod | Repeated guest-login interventions blocked the intended recovery path. | | 015 | CarreraMod | APKs presented as clean/known-good references still blocked guest access. | | 016 | CarreraMod | Native library replacement broke logging and BANDE; a JNI follow-up regressed them. | | 017 | CarreraMod | A purportedly complete JSON contract omitted a JNI path and introduced a global lock regression. | | 018 | CarreraMod | API selection was saved but not applied to real requests in time. | | 019 | CarreraMod | DEX register failure left the driver debug class unverifiable. | | 020 | CarreraMod | ARMv7 firmware guard violated the `Task<bool>` return contract. | | 021 | CarreraMod | APK tooling omitted or overwrote pairing DEX across two builds. | | 022 | CarreraMod | Dalvik register failures produced two debug APKs that would not start. | | 023 | CarreraMod | Version 1.6.74 logger SIGILL, 1.6.75 cut GCHandle, 1.6.76 Multidex errors (internal candidate). | | 024 | NanoRacer / Android | Installation assistance failed; payment-profile requirements were checked late; address/profile assumptions were unsupported. | | 025 | NanoRacer | A hard 79.2 km/h cap; contact-free laps did not establish usable race pace. | | 026 | NanoRacer | Speed increased, but behavior remained line-following and then jumped; no overtaking plan. | | 027 | NanoRacer | Later record comparison: seven of eight cases exceeded by 3+ seconds; imprecise percentage claims. | | 028 | NanoRacer / VRC | VRC history was read, but lessons were applied incompletely; later review was too superficial. | | 029 | NanoRacer | Old objects remained in data/generation; removing keyboard focus alone did not suffice. | | 030 | NanoRacer | Incorrect blocker/side-by-side fixes; corrected line and overtake errors. | | 031 | NanoRacer / Archive | Repetitive communication, uncertain APK availability, imprecise self-criticism, and too-narrow initial scope. | | 032 | CarreraMod / TimTime | [80 additional numbered findings from version notes and chat corrections](incidents/032-carrera-timtime-80-additional-findings.md); these are details, not 80 independent causes. |  | 033 | CarreraMod | [The 1.6.62 result observer ran after `RaceResultData.Last` had been cleared, contrary to my safe-trigger claim.](incidents/033-postrace-hook-order.md) |  | 034 | ShameGPT archive | [I grouped the requested individual errors into a bulk list instead of documenting the next one separately.](incidents/034-bulk-list-instead-of-individual-reports.md) |
+@{path=INCIDENTS.md; body=# Incident index
 
-The 226 searched CarreraMod version notes include progress and acceptance records and do not represent 226 errors. Findings distinguish observed failures, repeated attempts, hypotheses, and unresolved causes.  | 033 | CarreraMod | [The 1.6.62 result observer ran after RaceResultData.Last had been cleared, contrary to my safe-trigger claim.](incidents/033-postrace-hook-order.md) |
+Status as of 2026-09-30. The archive is incomplete. Each page documents one finding; related findings can share a root cause.
+
+| ID | Project | Finding |
+|---|---|---|
+| 001 | CarreraMod | Version 1.6.25 was described as the ARMv7 fix; later control-flow evidence contradicted that claim. |
+| 002 | CarreraMod | Static post-race checks were presented as functional proof; several result flows failed. |
+| 003 | CarreraMod | Multiple delivered JSON fields and switches had no effect. |
+| 004 | CarreraMod | A signed APK was built although no build had been requested. |
+| 005 | TimTime | A rough inventory was presented as “point 1”; omissions and conflicting role counts remained. |
+| 006 | TimTime | Unity platform builds were confused with verified hardware access. |
+| 007 | CarreraMod | A vehicle-build crash was attributed to the wrong cause; correction failed again. |
+| 008 | CarreraMod / TimTime | Pairing failure was first assigned to the wrong side; version 1.6.70 also failed in the app path. |
+| 009 | CarreraMod / TimTime | Finish-line events were lost; stale queued events reached the wrong session. |
+| 010 | CarreraMod | APK packaging failure increased the file from about 135 MB to about 299 MB. |
+| 011 | CarreraMod | Seven early test builds crashed or were withdrawn. |
+| 012 | CarreraMod | Repeated ARMv7 attempts shared a crash class; a later attempt also failed. |
+| 013 | CarreraMod | Vehicle data imported, but vehicles were missing or rendered black. |
+| 014 | CarreraMod | Repeated Guest-login interventions blocked the intended recovery path. |
+| 015 | CarreraMod | APKs presented as clean/known-good references still blocked Guest access. |
+| 016 | CarreraMod | Native library replacement broke logging and BANDE; a JNI follow-up regressed them. |
+| 017 | CarreraMod | A purportedly complete JSON contract omitted a JNI path and introduced a global lock regression. |
+| 018 | CarreraMod | API selection was saved but not applied to real requests in time. |
+| 019 | CarreraMod | DEX register failure left the driver debug class unverifiable. |
+| 020 | CarreraMod | ARMv7 firmware guard violated the `Task<bool>` return contract. |
+| 021 | CarreraMod | APK tooling omitted or overwrote pairing DEX across two builds. |
+| 022 | CarreraMod | Dalvik register failures produced two debug APKs that would not start. |
+| 023 | CarreraMod | Versions 1.6.74–1.6.76 had logger, GCHandle, and Multidex failures. |
+| 024 | NanoRacer / Android | Installation assistance failed; payment-profile requirements were checked late; address/profile assumptions were unsupported. |
+| 025 | NanoRacer | A hard 79.2 km/h cap; contact-free laps did not establish usable race pace. |
+| 026 | NanoRacer | Speed increased, but behavior remained line-following and then jumped; no overtaking plan. |
+| 027 | NanoRacer | Later record comparison: seven of eight cases exceeded by 3+ seconds; imprecise percentage claims. |
+| 028 | NanoRacer / VRC | VRC history was read, but lessons were applied incompletely; later review was too superficial. |
+| 029 | NanoRacer | Old objects remained in data/generation; removing keyboard focus alone did not suffice. |
+| 030 | NanoRacer | Incorrect blocker/side-by-side fixes; corrected line and overtake errors. |
+| 031 | NanoRacer / Archive | Repetitive communication, uncertain APK availability, imprecise self-criticism, and too-narrow initial scope. |
+| 032 | CarreraMod / TimTime | [Overview of the CT-024–CT-103 individual reports](incidents/032-carrera-timtime-80-additional-findings.md). |
+| 033 | CarreraMod | [The 1.6.62 result observer ran after `RaceResultData.Last` had been cleared, contrary to my safe-trigger claim.](incidents/033-postrace-hook-order.md) |
+| 034 | ShameGPT archive | [I grouped the requested individual errors into a bulk list instead of documenting the next one separately.](incidents/034-bulk-list-instead-of-individual-reports.md) || CT-024 | CarreraMod / TimTime | [1.2.67 — TimTime cars did not appear in Unity.](incidents/ct-024-1-2-67-timtime-cars-did-not-appear-in-unity.md) |
+| CT-025 | CarreraMod / TimTime | [1.2.70 — opening the car list crashed.](incidents/ct-025-1-2-70-opening-the-car-list-crashed.md) |
+| CT-026 | CarreraMod / TimTime | [1.2.74 — TryGetRacer hook crashed at startup.](incidents/ct-026-1-2-74-trygetracer-hook-crashed-at-startup.md) |
+| CT-027 | CarreraMod / TimTime | [1.2.75 — reducing the hook did not remove the crash.](incidents/ct-027-1-2-75-reducing-the-hook-did-not-remove-the-crash.md) |
+| CT-028 | CarreraMod / TimTime | [1.2.76 — SaveState.Racer intervention crashed at startup.](incidents/ct-028-1-2-76-savestate-racer-intervention-crashed-at-startup.md) |
+| CT-029 | CarreraMod / TimTime | [1.2.77 — changing the storage path did not fix the same crash.](incidents/ct-029-1-2-77-changing-the-storage-path-did-not-fix-the-same-crash.md) |
+| CT-030 | CarreraMod / TimTime | [1.2.80 — catalog ID was written to the wrong field.](incidents/ct-030-1-2-80-catalog-id-was-written-to-the-wrong-field.md) |
+| CT-031 | CarreraMod / TimTime | [1.2.81 — correcting the field was not enough.](incidents/ct-031-1-2-81-correcting-the-field-was-not-enough.md) |
+| CT-032 | CarreraMod / TimTime | [1.2.82 — Carrera’s sign-in button did not respond.](incidents/ct-032-1-2-82-carrera-s-sign-in-button-did-not-respond.md) |
+| CT-033 | CarreraMod / TimTime | [1.2.83 — moving the hook to the main thread did not remove the login block.](incidents/ct-033-1-2-83-moving-the-hook-to-the-main-thread-did-not-remove-the-login-block.md) |
+| CT-034 | CarreraMod / TimTime | [1.2.85/1.2.86 — moving sync to the next frame did not establish a reliable fix.](incidents/ct-034-1-2-85-1-2-86-moving-sync-to-the-next-frame-did-not-establish-a-reliable-fix.md) |
+| CT-035 | CarreraMod / TimTime | [1.2.89 — the original vehicle fetch was not a working TimTime integration.](incidents/ct-035-1-2-89-the-original-vehicle-fetch-was-not-a-working-timtime-integration.md) |
+| CT-036 | CarreraMod / TimTime | [1.2.90 — CarProfiles hook ran before login completed.](incidents/ct-036-1-2-90-carprofiles-hook-ran-before-login-completed.md) |
+| CT-037 | CarreraMod / TimTime | [1.2.92 — the supposedly passive observer still ran too early.](incidents/ct-037-1-2-92-the-supposedly-passive-observer-still-ran-too-early.md) |
+| CT-038 | CarreraMod / TimTime | [1.2.94 — the LoadCars assumption was not adequately supported.](incidents/ct-038-1-2-94-the-loadcars-assumption-was-not-adequately-supported.md) |
+| CT-039 | CarreraMod / TimTime | [1.2.95 — native crash on Guest click.](incidents/ct-039-1-2-95-native-crash-on-guest-click.md) |
+| CT-040 | CarreraMod / TimTime | [1.2.96 — retreating to a “clean” base did not fix Guest login.](incidents/ct-040-1-2-96-retreating-to-a-clean-base-did-not-fix-guest-login.md) |
+| CT-041 | CarreraMod / TimTime | [1.2.97 — native URL router caused an immediate crash.](incidents/ct-041-1-2-97-native-url-router-caused-an-immediate-crash.md) |
+| CT-042 | CarreraMod / TimTime | [1.2.98 — removing the router call was not enough.](incidents/ct-042-1-2-98-removing-the-router-call-was-not-enough.md) |
+| CT-043 | CarreraMod / TimTime | [1.2.99 — the original launcher was not restored.](incidents/ct-043-1-2-99-the-original-launcher-was-not-restored.md) |
+| CT-044 | CarreraMod / TimTime | [1.3.0 — CarProfiles bridge could run before Guest/SaveState was ready.](incidents/ct-044-1-3-0-carprofiles-bridge-could-run-before-guest-savestate-was-ready.md) |
+| CT-045 | CarreraMod / TimTime | [POWERBAND start state became stale.](incidents/ct-045-powerband-start-state-became-stale.md) |
+| CT-046 | CarreraMod / TimTime | [MODULE enabled was missing from JSON import.](incidents/ct-046-module-enabled-was-missing-from-json-import.md) |
+| CT-047 | CarreraMod / TimTime | [MODULE ignore_modules was missing from JSON import.](incidents/ct-047-module-ignore-modules-was-missing-from-json-import.md) |
+| CT-048 | CarreraMod / TimTime | [MODULE check_position_valid was missing from JSON import.](incidents/ct-048-module-check-position-valid-was-missing-from-json-import.md) |
+| CT-049 | CarreraMod / TimTime | [MODULE next_modules_zero was missing from JSON import.](incidents/ct-049-module-next-modules-zero-was-missing-from-json-import.md) |
+| CT-050 | CarreraMod / TimTime | [BANDEN TEST enabled was read only initially.](incidents/ct-050-banden-test-enabled-was-read-only-initially.md) |
+| CT-051 | CarreraMod / TimTime | [OFFTRACK available was ignored.](incidents/ct-051-offtrack-available-was-ignored.md) |
+| CT-052 | CarreraMod / TimTime | [SIM+ throttle threshold had no proven JNI endpoint.](incidents/ct-052-sim-throttle-threshold-had-no-proven-jni-endpoint.md) |
+| CT-053 | CarreraMod / TimTime | [SIM+ gas_step_percent was missing.](incidents/ct-053-sim-gas-step-percent-was-missing.md) |
+| CT-054 | CarreraMod / TimTime | [SIM+ gas_step_window_ms was missing.](incidents/ct-054-sim-gas-step-window-ms-was-missing.md) |
+| CT-055 | CarreraMod / TimTime | [SIM+ gas_step_ignore_steering_ms was missing.](incidents/ct-055-sim-gas-step-ignore-steering-ms-was-missing.md) |
+| CT-056 | CarreraMod / TimTime | [SIM+ gas_step_cooldown_ms was missing.](incidents/ct-056-sim-gas-step-cooldown-ms-was-missing.md) |
+| CT-057 | CarreraMod / TimTime | [SIM+ available was missing.](incidents/ct-057-sim-available-was-missing.md) |
+| CT-058 | CarreraMod / TimTime | [SIM+ enabled was missing.](incidents/ct-058-sim-enabled-was-missing.md) |
+| CT-059 | CarreraMod / TimTime | [start_min had no parser or setter path.](incidents/ct-059-start-min-had-no-parser-or-setter-path.md) |
+| CT-060 | CarreraMod / TimTime | [tx_byte_10 had no parser or setter path.](incidents/ct-060-tx-byte-10-had-no-parser-or-setter-path.md) |
+| CT-061 | CarreraMod / TimTime | [automatic_logging.on_start_min was forced to false.](incidents/ct-061-automatic-logging-on-start-min-was-forced-to-false.md) |
+| CT-062 | CarreraMod / TimTime | [api.racers was treated as a separate route even though it was only an alias.](incidents/ct-062-api-racers-was-treated-as-a-separate-route-even-though-it-was-only-an-alias.md) |
+| CT-063 | CarreraMod / TimTime | [1.6.42 replaced the native library with an incompatible historical build.](incidents/ct-063-1-6-42-replaced-the-native-library-with-an-incompatible-historical-build.md) |
+| CT-064 | CarreraMod / TimTime | [1.6.42 could not start the 20-Hz logger.](incidents/ct-064-1-6-42-could-not-start-the-20-hz-logger.md) |
+| CT-065 | CarreraMod / TimTime | [1.6.42 exposed fallback values as if they were live configuration.](incidents/ct-065-1-6-42-exposed-fallback-values-as-if-they-were-live-configuration.md) |
+| CT-066 | CarreraMod / TimTime | [1.6.42 still contained POWERBAND despite its documented retirement.](incidents/ct-066-1-6-42-still-contained-powerband-despite-its-documented-retirement.md) |
+| CT-067 | CarreraMod / TimTime | [1.6.42 still contained MODULE despite its documented retirement.](incidents/ct-067-1-6-42-still-contained-module-despite-its-documented-retirement.md) |
+| CT-068 | CarreraMod / TimTime | [1.6.42 still contained BANDEN TEST despite its documented retirement.](incidents/ct-068-1-6-42-still-contained-banden-test-despite-its-documented-retirement.md) |
+| CT-069 | CarreraMod / TimTime | [1.6.50 was prematurely called a “complete JSON contract.”](incidents/ct-069-1-6-50-was-prematurely-called-a-complete-json-contract.md) |
+| CT-070 | CarreraMod / TimTime | [1.6.50 incorrectly let root enabled:false override module switches.](incidents/ct-070-1-6-50-incorrectly-let-root-enabled-false-override-module-switches.md) |
+| CT-071 | CarreraMod / TimTime | [1.6.52 omitted SIM+ gas-step from the shared UI refresh.](incidents/ct-071-1-6-52-omitted-sim-gas-step-from-the-shared-ui-refresh.md) |
+| CT-072 | CarreraMod / TimTime | [1.6.43 failed because Java and native JNI names did not match.](incidents/ct-072-1-6-43-failed-because-java-and-native-jni-names-did-not-match.md) |
+| CT-073 | CarreraMod / TimTime | [The first 1.6.65 APK candidate still had the old version number.](incidents/ct-073-the-first-1-6-65-apk-candidate-still-had-the-old-version-number.md) |
+| CT-074 | CarreraMod / TimTime | [1.6.20 lost classes5.dex during repackaging.](incidents/ct-074-1-6-20-lost-classes5-dex-during-repackaging.md) |
+| CT-075 | CarreraMod / TimTime | [1.6.27 overwrote classes5.dex.](incidents/ct-075-1-6-27-overwrote-classes5-dex.md) |
+| CT-076 | CarreraMod / TimTime | [Direct dashboard/UI gear hooks returned unusable values or crashed.](incidents/ct-076-direct-dashboard-ui-gear-hooks-returned-unusable-values-or-crashed.md) |
+| CT-077 | CarreraMod / TimTime | [Gear-store hooks crashed or damaged shift behavior.](incidents/ct-077-gear-store-hooks-crashed-or-damaged-shift-behavior.md) |
+| CT-078 | CarreraMod / TimTime | [Direct jumps into original up/downshift blocks crashed.](incidents/ct-078-direct-jumps-into-original-up-downshift-blocks-crashed.md) |
+| CT-079 | CarreraMod / TimTime | [Direct writes to Gearbox.gear were unstable.](incidents/ct-079-direct-writes-to-gearbox-gear-were-unstable.md) |
+| CT-080 | CarreraMod / TimTime | [Setting Engine.CalculateTorque to zero did not limit real driving power as intended.](incidents/ct-080-setting-engine-calculatetorque-to-zero-did-not-limit-real-driving-power-as-intended.md) |
+| CT-081 | CarreraMod / TimTime | [InputController.get_Throttle was the wrong control point.](incidents/ct-081-inputcontroller-get-throttle-was-the-wrong-control-point.md) |
+| CT-082 | CarreraMod / TimTime | [Freezing RacerDriveData.Kph caused implausible driving behavior.](incidents/ct-082-freezing-racerdrivedata-kph-caused-implausible-driving-behavior.md) |
+| CT-083 | CarreraMod / TimTime | [The old TX byte 10 table was unreliable.](incidents/ct-083-the-old-tx-byte-10-table-was-unreliable.md) |
+| CT-084 | CarreraMod / TimTime | [RawX overlay labels were not reliably tied to byte sources.](incidents/ct-084-rawx-overlay-labels-were-not-reliably-tied-to-byte-sources.md) |
+| CT-085 | CarreraMod / TimTime | [Car.acceleration was mistaken for a control value.](incidents/ct-085-car-acceleration-was-mistaken-for-a-control-value.md) |
+| CT-086 | CarreraMod / TimTime | [Steering formulas produced unnatural or asymmetric behavior.](incidents/ct-086-steering-formulas-produced-unnatural-or-asymmetric-behavior.md) |
+| CT-087 | CarreraMod / TimTime | [Wrong TimTime vehicle count.](incidents/ct-087-wrong-timtime-vehicle-count.md) |
+| CT-088 | CarreraMod / TimTime | [A local reconstruction was presented as a server result.](incidents/ct-088-a-local-reconstruction-was-presented-as-a-server-result.md) |
+| CT-089 | CarreraMod / TimTime | [I delegated diagnosis to the user while more evidence could be checked.](incidents/ct-089-i-delegated-diagnosis-to-the-user-while-more-evidence-could-be-checked.md) |
+| CT-090 | CarreraMod / TimTime | [I initially treated the audio request as an app request.](incidents/ct-090-i-initially-treated-the-audio-request-as-an-app-request.md) |
+| CT-091 | CarreraMod / TimTime | [I inferred durable persistence from a function call.](incidents/ct-091-i-inferred-durable-persistence-from-a-function-call.md) |
+| CT-092 | CarreraMod / TimTime | [I declared the audio fix complete after syntax/UI checks.](incidents/ct-092-i-declared-the-audio-fix-complete-after-syntax-ui-checks.md) |
+| CT-093 | CarreraMod / TimTime | [I treated club tracks as integrated when they were absent from race-control track selection.](incidents/ct-093-i-treated-club-tracks-as-integrated-when-they-were-absent-from-race-control-track-selection.md) |
+| CT-094 | CarreraMod / TimTime | [I gave the wrong session explanation for a finish-line driver.](incidents/ct-094-i-gave-the-wrong-session-explanation-for-a-finish-line-driver.md) |
+| CT-095 | CarreraMod / TimTime | [I claimed a previous session ID without evidence.](incidents/ct-095-i-claimed-a-previous-session-id-without-evidence.md) |
+| CT-096 | CarreraMod / TimTime | [I incorrectly treated an MRC/NFC identifier as a Live-Target requirement.](incidents/ct-096-i-incorrectly-treated-an-mrc-nfc-identifier-as-a-live-target-requirement.md) |
+| CT-097 | CarreraMod / TimTime | [I described the first LapCompleted event as missing.](incidents/ct-097-i-described-the-first-lapcompleted-event-as-missing.md) |
+| CT-098 | CarreraMod / TimTime | [I conflated Live-Target and MRC timing.](incidents/ct-098-i-conflated-live-target-and-mrc-timing.md) |
+| CT-099 | CarreraMod / TimTime | [I gave the wrong reason for a missing observer timing-source switch.](incidents/ct-099-i-gave-the-wrong-reason-for-a-missing-observer-timing-source-switch.md) |
+| CT-100 | CarreraMod / TimTime | [I speculated about pairing-code generation without enough evidence.](incidents/ct-100-i-speculated-about-pairing-code-generation-without-enough-evidence.md) |
+| CT-101 | CarreraMod / TimTime | [I said pairing was “fixed” after the user had only asked a question.](incidents/ct-101-i-said-pairing-was-fixed-after-the-user-had-only-asked-a-question.md) |
+| CT-102 | CarreraMod / TimTime | [I built signed APK 1.2.69 despite the project rule against unrequested app builds.](incidents/ct-102-i-built-signed-apk-1-2-69-despite-the-project-rule-against-unrequested-app-builds.md) |
+| CT-103 | CarreraMod / TimTime | [I used the wrong time contract in the Live-Target payload.](incidents/ct-103-i-used-the-wrong-time-contract-in-the-live-target-payload.md) |
+
+The CarreraMod source corpus includes version notes, progress records, acceptance checks, and archived chats. Their total count is not an error count. Reports distinguish observed failures, hypotheses, and unresolved causes.
+}.body

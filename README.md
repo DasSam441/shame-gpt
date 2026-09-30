@@ -1,16 +1,14 @@
-# ShameGPT — evidence-based errors and misleading claims
+@{path=README.md; body=# ShameGPT — evidence-based errors and misleading claims
 
 This archive documents verifiable false statements, technical mistakes, and misleading claims. It evaluates evidence and outcomes; it does not claim intent to deceive.
 
-Each report gives a short excerpt or claim, the counter-evidence, a technical explanation, and the limits of what the record establishes. Project source code and private credentials are not reproduced. Private source references are included only where the authorized reader can access them.
+Each incident is documented on its own page with the recorded event, technical explanation, why it was my mistake, and the available evidence. Project source code, APKs, private credentials, and personal identifiers are not reproduced. Some citations lead to private source records and are accessible only to authorized readers.
 
-This is a working archive, not a complete audit. The CarreraMod review so far searched 226 version notes; that count includes progress and acceptance reports and is not a count of errors. Report 032 contains 80 individually numbered details, not 80 independent root causes. Reports 033–034 document separate post-race hook-order and task-format failures.
+This is a working archive, not a complete audit. The CarreraMod review includes hundreds of version notes and archived chats, but those source counts do not represent error counts. The 80 findings in the CT-024–CT-103 series are now individual pages; related findings may share root causes.
 
-- [Incident index (34 reports)](INCIDENTS.md)
-- [Report 032: 80 additional CarreraMod/TimTime findings](incidents/032-carrera-timtime-80-additional-findings.md)
-- [Report 033: incorrect post-race hook-order analysis](incidents/033-postrace-hook-order.md)
-- [Report 034: bulk list instead of individual reports](incidents/034-bulk-list-instead-of-individual-reports.md)
+- [Incident index](INCIDENTS.md)
+- [CT-024–CT-103 series overview](incidents/032-carrera-timtime-80-additional-findings.md)
+- [CT-033: incorrect post-race hook-order analysis](incidents/033-postrace-hook-order.md)
+- [CT-034: bulk list instead of individual reports](incidents/034-bulk-list-instead-of-individual-reports.md)
 
-The CarreraMod application repository is private as of 2026-09-30. The TimTime repository is public. This archive is public, so reports omit personal account, device, and network identifiers.
-
-Reports 024–031 cover the separately requested NanoRacer work. They remain distinct from the CarreraMod/TimTime archive. See [the NanoRacer chat-review scope and limitations](incidents/nanoracer-chat-pruefumfang-2026-09-30.md).
+The CarreraMod application repository is private as of 2026-09-30. The TimTime repository is public. Reports 024–031 concern the separately requested NanoRacer work and remain a distinct project set. See [the NanoRacer review scope and limitations](incidents/nanoracer-chat-pruefumfang-2026-09-30.md).}.body

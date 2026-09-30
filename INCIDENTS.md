@@ -14,5 +14,6 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch.
 | 008 | CarreraMod / TimTime | Pairing-Fehler zunächst der falschen Seite zugeordnet; 1.6.70 scheiterte auch im App-Pfad. |
 | 009 | CarreraMod / TimTime | Ziellinienereignisse gingen verloren; alte Warteschlangenereignisse konnten einer verwaisten Session folgen. |
 | 010 | CarreraMod | APK-Verpackungsfehler ließ Datei von etwa 135 MB auf etwa 299 MB anwachsen. |
+| 011 | CarreraMod | Sieben frühe Testbuilds stürzten auf Geräten ab oder wurden zurückgezogen; Root Causes teils offen. |
 
 Mehrere Builds derselben widerlegten Annahme zählen nicht automatisch als unabhängige Fälle.

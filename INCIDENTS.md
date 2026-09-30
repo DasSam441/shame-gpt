@@ -24,5 +24,7 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch. Die Fehlerfamilien können meh
 | 018 | CarreraMod | API-Auswahl war gespeichert, aber nicht rechtzeitig auf echte Requests angewendet. |
 | 019 | CarreraMod | DEX-Registerfehler machte Driver-Debug-Klasse unverifizierbar. |
 | 020 | CarreraMod | ARMv7-Firmware-Guard verletzte den Task<bool>-Rückgabevertrag. |
+| 021 | CarreraMod | Apktool ließ Pairing-DEX fehlen oder überschrieb ihn in zwei Builds. |
+| 022 | CarreraMod | Dalvik-Registerfehler erzeugte zwei nicht startfähige Debug-APKs. |
 
 Die 226 gescannten Versionsdokumente enthalten auch Fortschritts- und Abnahmeberichte; die Zahl 226 ist keine Fehlerzahl. Die Fallberichte trennen belegte Fehler, Folgeversuche und offene Ursachen.

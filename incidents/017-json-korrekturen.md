@@ -1,13 +1,13 @@
-# 017 — Als vollständig bezeichnete JSON-Korrektur hatte weiter unwirksame Schalter
+# 017 — The JSON fix called complete still had ineffective switches
 
-**Befund:** Folgefehler nach dem Audit von 1.6.49.
+**Finding:** follow-up failures after the 1.6.49 audit.
 
-1.6.50 wurde als „vollständiger TimTime-JSON-Vertrag“ beschrieben. Der Nachtrag korrigierte das: Für simulation_plus.speed_steering_min_throttle_percent fehlte weiterhin ein nativer Endpunkt. Ein zweiter Nachtrag stellte fest, dass der Root-Schalter enabled:false fälschlich als globale Sperre über die einzelnen Mod-Schalter gelegt war.
+Version 1.6.50 was described as a “complete TimTime JSON contract.” A later note corrected that statement: a native endpoint was still missing for `simulation_plus.speed_steering_min_throttle_percent`. A second follow-up found that root `enabled:false` was incorrectly applied as a global lock over individual mod switches.
 
-1.6.52 entfernte diese globale Verzweigung. In 1.6.50 konnten daher Werte trotz erfolgreicher statischer DEX-, JSON- und Signaturprüfungen wirkungslos bleiben.
+Version 1.6.52 removed that global branch. Values in 1.6.50 could therefore remain ineffective despite passing static DEX, JSON, and signature checks.
 
-**Technische Erklärung:** Ein Feldpfad kann in Java/DEX vorhanden sein und trotzdem am nativen JNI-Endpunkt enden, der nicht exportiert wird. Außerdem änderte die globale Sperrlogik das Profilsemantik: Ein Root-Wert überschattete moduleigene available/enabled-Werte.
+**Technical explanation:** A field path can exist in Java/DEX and still terminate at a JNI endpoint that the native library does not export. The global lock also changed profile semantics: a root value overrode module-specific `available`/`enabled` values.
 
-**Warum mein Fehler:** Ich nannte den Vertrag vollständig, obwohl nicht jedes Feld bis zum nativen Verbraucher belegt war, und die statischen Gesamtprüfungen fanden die fehlende Bindung nicht. Die nächste Korrektur führte eine eigene, neue Profilregression ein.
+**Why this was my mistake:** I called the contract complete without tracing every field to its native consumer, and the aggregate static checks missed the missing binding. The next correction introduced a new profile regression.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.50_JSON_VERTRAG_BUILD.md und docs/CARRERAMOD_1.6.52_OPTIONAL_MODS_PROFILE_ROUTING.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.50_JSON_VERTRAG_BUILD.md` and `docs/CARRERAMOD_1.6.52_OPTIONAL_MODS_PROFILE_ROUTING.md`.

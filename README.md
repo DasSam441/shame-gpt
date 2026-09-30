@@ -13,5 +13,9 @@ Die Berichte sind eine **erste Teilausgabe** aus den zugänglichen CarreraMod- u
 - [004 Unbeauftragter APK-Build](incidents/004-apk.md)
 - [005 TimTime-Inventur](incidents/005-inventur.md)
 - [006 Unity und Hardware](incidents/006-hardware.md)
+- [007 Fahrzeugbild-Crash](incidents/007-bild-crash.md)
+- [008 Pairing-Fehler](incidents/008-pairing-fehler.md)
+- [009 Ziellinien-Warteschlange](incidents/009-ziellinie-queue.md)
+- [010 APK-Verpackungsfehler](incidents/010-apk-groesse.md)
 
 Zum Prüfzeitpunkt ist Carrera-Mod-App privat; DasSam441/TimTime ist öffentlich. Dieses Archiv ist öffentlich.

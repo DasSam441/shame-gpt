@@ -1,34 +1,34 @@
-# 030: Mehrere fehlerhafte Bot-Testaufbauten und interne Fahrplanungsversuche
+# 030 — Several bot-test setups and internal driving-planning attempts were wrong
 
-Stand: 2026-09-30.
+As of 2026-09-30.
 
-## Einordnung
+## Scope
 
-Diese Befunde wurden während der Arbeit entdeckt und korrigiert. Sie sind konkrete fehlgeschlagene Versuche, aber kein Beleg dafür, dass genau diese Zwischenstände live ausgeliefert wurden oder die finalen Testzahlen erfunden waren.
+These failures were found and corrected during the work. They do not prove that these exact intermediate states were released live or that the final test counts were fabricated.
 
-| Befund | Technische Ursache | Auswirkung und Korrektur |
+| Finding | Technical cause | Effect and correction |
 |---|---|---|
-| Erstes stehendes Hindernis neben der Spur | In einer Kurve entlang der bisherigen Fahrtrichtung statt auf der tatsächlichen Route platziert | Vorbeifahrt war kein Nachweis des beabsichtigten Anhaltens. Fixture auf Route korrigiert. |
-| Hochgeschwindigkeits-Bremsfixture erreichte keine 180 km/h | Grob polygonal abgetastete Kurve erzeugte künstliche Krümmungsspitzen | Kein gültiger Bremsnachweis. Dicht abgetastete analytische Kurve verwendet. |
-| Neue Linie berührte Kanada-/Peak-Banden | Globale Normalenstrahlen trafen eine benachbarte Haarnadelstrecke | Unstetige Routenpunkte. Zusammengehörige linke/rechte Randabschnitte und Kontinuitätsprüfung ergänzt. |
-| Überholen bewegter Gegner blieb aus | Spurwechselbeginn wurde bei jeder Planung erneut auf die aktuelle Position gelegt | Übergang wurde immer nach hinten verschoben; fester räumlicher Beginn eingeführt. |
-| Angeblicher Nebeneinander-Test war falsch aufgestellt | `Physics.SyncTransforms` übernahm einen zuvor geänderten Transform und hob die gewünschte Rigidbody-Position auf | Gegner stand voraus, nicht daneben. Frühere Testeinträge sind ungültig; Startposition und Anfangsabstand wurden danach ausdrücklich geprüft. |
-| Spätes Hindernis in enger Kurve führte zu Kontakt | Abstand im Referenzstreckenmodell allein erfasste reale Fahrzeugkörper nicht ausreichend | Vollständige Körpersweeps und größere seitliche Reserve eingeführt; derselbe strenge Kontakttest wiederholt. |
+| First stationary obstacle was beside the route | It was placed along the prior heading through a curve, not on the actual path | Passing it did not prove the intended stop. The fixture was moved onto the route. |
+| High-speed braking fixture never reached 180 km/h | Coarsely sampled polygonal curve generated artificial curvature spikes | Not a valid braking test. A densely sampled analytic curve was used. |
+| New line touched Canada/Peak barriers | Global normal rays hit a neighboring hairpin | Route points became discontinuous. Matched left/right boundary segments and continuity checks were added. |
+| Overtake of moving opponent did not happen | The lane-change start was recalculated from the current position on each planning pass | The transition kept moving backward. A fixed spatial start was introduced. |
+| Claimed side-by-side test had the wrong setup | `Physics.SyncTransforms` applied an earlier Transform change and overrode the intended Rigidbody position | The opponent was ahead, not alongside. Earlier results are invalid; starting position and gap were then checked explicitly. |
+| Late obstacle in a tight curve caused contact | Distance in the reference track model did not adequately represent the physical car body | Full body sweeps and larger lateral clearance were added, and the strict contact test was repeated. |
 
-## Warum das relevant ist
+## Why this matters
 
-Ein grüner Test kann den falschen Aufbau prüfen. Die Nebeneinander-Prüfung benötigte eine Vorbedingung für die tatsächliche relative Startposition. Eine Strecke ohne Bandenkontakt kann außerdem immer noch über eine Kurvenecke abkürzen; deshalb kamen Fahrzeugumrissprüfungen hinzu.
+A green test can exercise the wrong setup. The side-by-side check needed a precondition on the actual relative start position. A lap without barrier contact can still cut a corner, which is why vehicle-outline checks were added.
 
-## Verbleibende Grenzen der finalen Prüfungen
+## Limits of final checks
 
-Die Umrissprüfung erfolgte mit 10 Hz und erst nach der ersten Runde. Null gemessene Überschreitungen ist damit keine lückenlose Garantie für jeden Physikschritt und jede Anfangssituation. Verkehrsprüfungen kontrollierten dagegen Überlappungen pro Physikschritt. Auch 54 Streckenfälle und 15 Verkehrsfälle sind keine vollständige Untersuchung aller möglichen Verkehrssituationen.
+The outline check ran at 10 Hz and only after the first lap. Zero measured boundary crossings is not a complete guarantee for every physics step and initial condition. Traffic tests checked overlaps every physics step. Even 54 track cases and 15 traffic cases are not an exhaustive analysis of all traffic situations.
 
-Die endgültigen lokalen Prüfungen bestanden nach den Korrekturen. Es gab ausdrücklich keine Live-Spielprüfung. Das entsprach der Nutzeranweisung und ist nicht selbst als Regelverstoß zu werten. Datei-/Hashprüfung und aktiver Serverprozess beweisen keine Synchronisationsqualität auf dem Endgerät.
+The final local checks passed after correction. There was expressly no live gameplay test. That followed the user’s instruction and is not itself a violation. File/hash checks and an active server process do not prove synchronization quality on an end device.
 
-Belegdateien: `Evidence/bot-racing-line/matrix-curvature.log`, `traffic-extended.log`, `network-final.log`, `matrix-final.log`, `traffic-body-clearance.log`, `network-body-clearance.log`; sowie die dokumentierten Fehlerabschnitte in ONLINE-BOT.md. Frühere falsche Nebeneinander-Ergebnisse werden nicht als Endabnahme verwendet.
+Evidence files: `Evidence/bot-racing-line/matrix-curvature.log`, `traffic-extended.log`, `network-final.log`, `matrix-final.log`, `traffic-body-clearance.log`, `network-body-clearance.log`, and the documented failure sections in `ONLINE-BOT.md`. The earlier invalid side-by-side results are not used as final acceptance.
 
-## Quellen und Grenzen
+## Sources and limits
 
-Quelle: vollständig durchblätterte Nutzer- und Assistentennachrichten im Chat „Bots für Rennen prüfen“, Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, bis zum Auftrag vom 30.09.2026, auch den übrigen Chat zu dokumentieren. Werkzeugprotokolle wurden gezielt geprüft, nicht jeder Build unabhängig wiederholt. Kurze Chatauszüge werden hier als Primärbelege wiedergegeben; der vollständige private Chat wird nicht gespiegelt.
+Source: user and assistant messages in chat “Check race bots,” thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, read through the user’s 2026-09-30 request to document the rest of the chat. Tool records were checked selectively; not every build was independently repeated. Short excerpts are reproduced as primary evidence; the private chat is not mirrored in full.
 
-Zusätzlicher Projektbeleg: [ONLINE-BOT.md am dokumentierten Release-Commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). Dieser Link kann Repository-Zugriff erfordern. Lokale Evidence-Dateien sind keine öffentlich abrufbaren Belege.
+Additional project evidence: [ONLINE-BOT.md at the documented release commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). This link may require repository access. Local evidence files are not publicly accessible.

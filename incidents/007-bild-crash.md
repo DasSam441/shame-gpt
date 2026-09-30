@@ -1,13 +1,13 @@
-# 007 — Fahrzeugbild-Crash der falschen Ursache zugeschrieben
+# 007 — I attributed the vehicle-image crash to the wrong cause
 
-**Befund:** erste Ursachenannahme widerlegt; Folgekorrektur scheiterte.
+**Finding:** the first causal hypothesis was disproven; the follow-up correction also failed.
 
-CarreraMod 1.6.58 stürzte beim ersten Öffnen der Kollektion mit TimTime-Fahrzeugbildern ab. Die erste Analyse machte einen unmittelbar ausgelösten zweiten LoadCars-Aufbau verantwortlich. 1.6.59 entfernte diesen zweiten Aufruf; der dokumentierte Gerätetest zeigte danach exakt denselben Fehler.
+CarreraMod 1.6.58 crashed when the collection was first opened with TimTime vehicle images. The initial analysis blamed an immediately triggered second `LoadCars` rebuild. Version 1.6.59 removed that second call; the documented device test then reproduced exactly the same failure.
 
-> „Damit war der zweite LoadCars-Aufruf nicht die eigentliche Ursache.“
+> “That showed the second `LoadCars` call was not the actual cause.”
 
-Der Download funktionierte, Serverprotokolle zeigten erfolgreiche Bildantworten; der native Unity-Crash wurde im Java-Crashreport nicht erfasst.
+The download worked and server logs showed successful image responses; the native Unity crash was not captured by the Java crash reporter.
 
-**Warum mein Fehler:** Ich machte aus einer auffälligen Reihenfolge eine Ursachenfeststellung und lieferte darauf eine Korrektur, bevor der Fehler reproduzierbar der Stelle zugeordnet war. Der erneute Gerätetest widerlegte die Annahme.
+**Why this was my mistake:** I turned a suspicious sequence into a causal conclusion and shipped a correction before the failure had been tied to that code path. The repeated device test disproved the hypothesis.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.58_TIMTIME_VEHICLE_IMAGES.md, 2026-08-22; Build 1.6.59-Gerätebefund.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.58_TIMTIME_VEHICLE_IMAGES.md`, 2026-08-22; device finding for build 1.6.59.

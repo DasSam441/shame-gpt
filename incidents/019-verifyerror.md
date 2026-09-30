@@ -1,11 +1,11 @@
-# 019 — Driver-Debug-Setter machte die Activity-Klasse ungültig
+# 019 — The driver-debug setter made the Activity class invalid
 
-**Befund:** CarreraMod 1.6.0 wurde wegen VerifyError gesperrt.
+**Finding:** CarreraMod 1.6.0 was blocked because of a `VerifyError`.
 
-Die neue Methode setTimTimeDriverDebugAllowed(boolean) verwendete zu wenige Register und überschieb dadurch die Activity-Referenz mit einem String. Beim Zugriff auf debugApprovedMac hatte Android deshalb einen Empfänger mit falschem Typ; die Klasse wurde mit VerifyError verworfen.
+The new method `setTimTimeDriverDebugAllowed(boolean)` used too few registers and overwrote the Activity reference with a String. When Android accessed `debugApprovedMac`, the receiver had the wrong type and the class was rejected with `VerifyError`.
 
-1.6.1 fügte ein echtes lokales Register hinzu und hielt p0 als Activity fest. Damit war dieser VerifyError laut Versionsdokument behoben; der getrennte ARMv7-Crash blieb offen.
+Version 1.6.1 added a real local register and kept `p0` as the Activity reference. The version note says this fixed the `VerifyError`; the separate ARMv7 crash remained open.
 
-**Warum mein Fehler:** Die Smali-Register-/Typprüfung vor dem Build fing nicht ab, dass ein Methodenparameter und der Activity-Empfänger dieselbe Registerposition nutzten. Ein Buildartefakt ohne DEX-Verifikation war nicht releasefähig.
+**Why this was my mistake:** The Smali register/type check before the build did not catch that a method parameter and the Activity receiver occupied the same register position. A build artifact without DEX verification was not release-ready.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.0_DRIVER_DEBUG_VERIFYERROR.md und docs/CARRERAMOD_1.6.1_DRIVER_DEBUG_REGISTERFIX.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.0_DRIVER_DEBUG_VERIFYERROR.md` and `docs/CARRERAMOD_1.6.1_DRIVER_DEBUG_REGISTERFIX.md`.

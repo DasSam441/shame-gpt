@@ -13,3 +13,4 @@ Zum Prüfzeitpunkt ist Carrera-Mod-App privat; DasSam441/TimTime ist öffentlich
 Bericht 024 ergänzt den ausdrücklich beauftragten NanoRacer-Fall zur gescheiterten Android-Installationshilfe und Registrierungsberatung. Die ursprüngliche CarreraMod-/TimTime-Teilauswertung bleibt unverändert.
 
 Die Fälle 025–031 ergänzen auf ausdrücklichen Nutzerauftrag die übrigen belegten Fehlerfamilien des NanoRacer-Bot-/Android-Chats: Tempo, Mittellinienfahrt, verspäteter Rekordvergleich, unzureichend genutztes VRC-Vorwissen, Altobjekte, fehlerhafte interne Tests und Kommunikation. [Prüfumfang und offene Grenzen](incidents/nanoracer-chat-pruefumfang-2026-09-30.md). Korrigierte Zwischenfehler werden nicht als weiter bestehende Live-Fehler dargestellt.
+

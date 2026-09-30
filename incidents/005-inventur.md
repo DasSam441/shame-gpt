@@ -1,11 +1,11 @@
-# 005 — TimTime-Inventur als „Punkt 1“ übergeben
+# 005 — TimTime inventory delivered as “item 1”
 
-**Befund:** unvollständig und widersprüchlich.
+**Finding:** incomplete and contradictory.
 
-Ich schrieb: „Hier ist Punkt 1: die Bestandsaufnahme der TimTime-Funktionen.“ Im selben Ergebnis räumte ich ein, dass keine vollständige Seiten-für-Seiten-Inventur vorlag. Vorher waren Arbeitsblätter mit 263, rund 840 und rund 1.370 Zeilen präsentiert worden; nach jedem Stand blieben große Bereiche offen. Der Nutzer musste wiederholt auf fehlende Inhalte hinweisen.
+I wrote: “Here is item 1: the inventory of TimTime features.” In the same result, I acknowledged that there was no complete page-by-page inventory. Earlier spreadsheets with 263, about 840, and about 1,370 rows had been presented; after each version, large areas remained open. The user repeatedly had to point out missing content.
 
-Die Antworten nannten noch offene Rennleitung, Fuhrpark, Anmeldung/Datenschutz, mobile Releaseverwaltung, Datenbankschemata, Dialoge, API-Felder und Geräteprüfungen. Zudem wechselten die genannten Rollenzahlen zwischen 25 und 24, ohne dass der zugängliche Verlauf die Differenz auflöste.
+The responses still listed race control, fleet, registration/privacy, mobile release management, database schemas, dialogs, API fields, and device checks as outstanding. The stated role counts also shifted between 25 and 24, without the accessible record resolving the difference.
 
-**Warum mein Fehler:** Ich setzte Umfang und Zeilenzahl mit einer tragfähigen Inventur gleich und löste widersprüchliche Zählungen nicht auf. Ein Zwischenstand hätte klar als solcher bezeichnet werden müssen.
+**Why this was my mistake:** I treated scope and row count as a reliable inventory and did not resolve contradictory counts. I should have clearly labeled the result as an interim draft.
 
-**Quelle:** zugänglicher Chat „TimTime auf Unity umstellen“, September 2026. Zeilenzahlen belegen Dokumentgröße, nicht Vollständigkeit.
+**Source:** accessible chat “Move TimTime to Unity,” September 2026. Row counts establish document size, not completeness.

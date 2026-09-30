@@ -1,60 +1,60 @@
-# 024: NanoRacer – gescheiterte Android-Installationshilfe und unvollständige Registrierungsberatung
+# 024 — Failed Android installation guidance and incomplete registration advice
 
-Stand: 2026-09-30. Quelle: Chat „Bots für Rennen prüfen“, Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`. Der Nutzer beauftragte ausdrücklich die Dokumentation dieses Fehlschlags im öffentlichen Repository. Private Adressen, Kontodaten und das ungeschwärzte Bildschirmfoto werden nicht veröffentlicht.
+As of 2026-09-30. Source: chat “Check race bots,” thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`. The user explicitly requested documentation of this failure in the public repository. Private addresses, account details, and the unredacted screenshot are not published.
 
-## Auftrag und tatsächliches Ergebnis
+## Request and outcome
 
-Der Nutzer ließ den aktuellen Unity-Spielstand als Android-APK bauen und wollte ihn auf seinem Handy nutzen. Der Build und die lokale Signaturprüfung bestanden. Die Installation scheiterte nach Nutzerangabe dennoch. Die anschließende Beratung löste weder die Installationssperre noch die Probleme bei der Entwicklerregistrierung. Eine erfolgreiche Installation wurde nicht nachgewiesen.
+The user asked for the current Unity game build to be packaged as an Android APK for their phone. The build and local signature check passed. The user nevertheless reported that installation failed. The subsequent advice did not resolve either the installation block or developer registration. Successful installation was never established.
 
-## Belegte Abfolge und Fehler
+## What went wrong
 
-### 1. Ein sichtbarer Installationsknopf wurde als brauchbarer Weg empfohlen, ohne das Ergebnis zu kennen
+### I treated a visible install button as a useful path without knowing whether it worked
 
-Der Screenshot zeigte Google Play Protect mit dem Hinweis, dass Google von diesem Entwickler noch keine anderen Apps kenne, sowie „Trotzdem installieren“. Meine Antwort lautete: „Für deinen Test kannst du bei der von uns gebauten APK auf ‚Trotzdem installieren‘ tippen.“ Der Nutzer antwortete: „nein geht nicht“.
+The screenshot showed Google Play Protect warning that Google had not seen other apps from this developer, with a “Install anyway” button. I replied: “For your test, you can tap ‘Install anyway’ on the APK we built.” The user answered: “No, it doesn’t work.”
 
-Der Screenshot belegt die Warnung und den Knopf, nicht dessen erfolgreiche Funktion. Ich konnte anschließend keine konkrete Ursache für die gescheiterte Installation feststellen. Die später vorgeschlagene USB-/ADB-Installation war ein alternativer Diagnoseweg, keine nachgewiesene Reparatur dieser Sperre. Der Nutzer lehnte diesen umständlichen Weg ab; ein Gerät war nicht verbunden.
+The screenshot established the warning and the button, not that the button would work. I could not determine the actual cause of the failed installation. The later USB/ADB suggestion was an alternative diagnostic path, not a demonstrated repair. The user rejected that inconvenient route; no device was connected.
 
-### 2. Kostenlose Registrierung empfohlen, entscheidende Voraussetzung erst nach Nutzerwiderspruch recherchiert
+### I recommended free registration before checking a decisive requirement
 
-Nachdem der Nutzer erklärt hatte, weder Kredit- noch Debitkarte zu besitzen, empfahl ich wiederholt das kostenlose Konto „Limited distribution“ für bis zu 20 autorisierte Geräte. Ich erklärte dabei nicht, dass auch dieses Konto ein Google-Zahlungsprofil verlangt.
+After the user said they had neither a credit nor a debit card, I repeatedly recommended Google’s free “Limited distribution” account for up to 20 authorized devices. I did not explain that this account also requires a Google payments profile.
 
-Der Nutzer meldete daraufhin, dass Google trotzdem ein Zahlungsprofil anfordere und alte Adressen anzeige. Erst danach las ich die spezielle Anleitung vollständig und bestätigte die fehlende Voraussetzung.
+The user then reported that Google still required a payments profile and showed old addresses. Only afterward did I read the specific instructions fully and confirm the missing prerequisite.
 
-**Technische Erklärung:** „Kostenlos“ beschreibt die Registrierungsgebühr. Ein Zahlungsprofil ist ein eigener Datensatz für rechtlichen Namen und Anschrift. Google verlangt dessen Verknüpfung ausdrücklich auch für Limited distribution. Gebührenfreiheit bedeutet deshalb nicht, dass kein Zahlungsprofil erforderlich ist. Eine Zahlungskarte, ein Zahlungsprofil und ein Entwicklerkonto sind unterschiedliche Dinge; meine Hilfestellung hatte diese Unterschiede nicht rechtzeitig erklärt.
+**Technical explanation:** “Free” describes the registration fee. A payments profile is a separate record for legal name and address. Google explicitly requires it for Limited distribution too. No fee does not mean no payments profile. A card, payments profile, and developer account are distinct things; my guidance did not explain that in time.
 
-### 3. Unbelegte Vermutung über mehrere Zahlungsprofile und unpassende Bedienanweisung
+### I speculated about multiple payments profiles and gave an inapplicable instruction
 
-Ich verwies zunächst auf die Adressänderung im Zahlungscenter. Der Nutzer stellte klar: „da ist die richtige“. Darauf antwortete ich: „Dann zeigt die Registrierung möglicherweise ein anderes Zahlungsprofil“ und verlangte einen Vergleich der Zahlungsprofil-IDs. Der Nutzer meldete: „da steht keine ID“.
+I first pointed to changing the address in Google Payments. The user clarified: “the right one is there.” I then said registration might be showing another payments profile and asked the user to compare profile IDs. The user reported: “there is no ID there.”
 
-Die Vermutung war sprachlich als Möglichkeit markiert, aber weder mehrere Profile noch eine sichtbare ID in der tatsächlich geöffneten Registrierung waren belegt. Die Anleitung half deshalb nicht. Es gab keinen belegten Nachweis für ein falsches Profil, einen Cachefehler oder eine andere Ursache der abweichenden Adressanzeige. Danach verlangte ich erneut einen Screenshot, statt bereits einen verifizierten Lösungsweg liefern zu können.
+I marked the idea as a possibility, but neither multiple profiles nor a visible ID in the actual registration flow had been established. The instruction therefore did not help. There was no evidence for a wrong profile, cache issue, or other cause of the address discrepancy. I then asked for another screenshot instead of providing a verified solution.
 
-### 4. Unnötige Belastung durch weitere Rückfragen und wiederholte Entschuldigungen
+### I burdened the user with more questions and repeated apologies
 
-Der Nutzer hatte ausdrücklich kurze, konkrete Hilfe verlangt. Meine Antworten wechselten zwischen Vermutungen, zusätzlichen Bedienaufgaben und Entschuldigungen. Das Problem blieb ungelöst. Die Verantwortung für die fehlende Diagnose wurde dadurch praktisch wieder auf den Nutzer verlagert, obwohl ich zuvor einen einfachen Registrierungsweg nahegelegt hatte.
+The user had explicitly requested short, concrete help. My replies alternated between guesses, more user tasks, and apologies. The problem remained unresolved. In practice I shifted the missing diagnosis back to the user after suggesting the registration path was simple.
 
-## Was tatsächlich technisch geprüft wurde – und was nicht
+## What was and was not technically checked
 
-- Der damalige Build meldete `ANDROID_BUILD_OK`, Dateigröße 125767876 Bytes und SHA-256 `b36edb494d3ca083cf2c5c4e360028ef047c30cb576e656d9ab6cc1bbb0cbc02`.
-- `apksigner verify --verbose` meldete eine gültige APK-v2-Signatur. `aapt dump badging` zeigte Paket `de.nanoracer.game`, ARM64, minSdk 25 und targetSdk 36.
-- Der Abschluss sagte ausdrücklich, dass kein Android-Gerätetest erfolgt war. Es wurde also kein bestandener Gerätetest behauptet.
-- Eine gültige Signatur belegt Integrität und Signierung, keine Play-Protect-Freigabe und keine erfolgreiche Installation.
-- Beim späteren Versuch, das konkrete Zertifikat nachzuprüfen, war die APK am bisherigen Zielpfad nicht mehr vorhanden. Ursache und Verantwortlichkeit für ihr Fehlen sind nicht belegt. Die später gelesene Projekteinstellung `androidUseCustomKeystore: 0` beweist nicht rückwirkend das Zertifikat der Datei auf dem Handy.
-- Googles dokumentierte Kategorie „Uncommon“ passt zum Wortlaut des Screenshots. Das ist keine vollständige Sicherheitsprüfung der APK und keine Erklärung dafür, warum die angebotene Installation beim Nutzer nicht funktionierte.
-- Entwicklerregistrierung und Play-Protect-Bewertung sind getrennte Vorgänge. Ich hatte zwar eingeschränkt, dass eine Registrierung die Warnung nicht garantiert beseitigt; eine konkrete Eignung zur Behebung dieses Installationsfalls war aber überhaupt nicht nachgewiesen.
+- The build output reported `ANDROID_BUILD_OK`, a size of 125767876 bytes, and SHA-256 `b36edb494d3ca083cf2c5c4e360028ef047c30cb576e656d9ab6cc1bbb0cbc02`.
+- `apksigner verify --verbose` reported a valid APK v2 signature. `aapt dump badging` reported package `de.nanoracer.game`, ARM64, minSdk 25, and targetSdk 36.
+- The completion message explicitly said no Android device test had been performed. It did not claim a successful device test.
+- A valid signature establishes signing and integrity, not Play Protect approval or successful installation.
+- When I later tried to check the exact certificate, the APK was no longer present at its prior target path. The cause and responsibility for its absence are not established. The later project setting `androidUseCustomKeystore: 0` does not retroactively prove which certificate was on the phone.
+- Google’s documented “Uncommon” category matches the screenshot wording. That is not a complete security review of the APK and does not explain why installation failed for the user.
+- Developer registration and Play Protect assessment are separate processes. I did qualify that registration was not guaranteed to remove the warning, but its suitability as a fix for this installation failure was never established.
 
-## Folgen und offener Stand
+## Consequences and open status
 
-Der Nutzer wurde durch einen nicht ausreichend geprüften Registrierungsablauf und unpassende Anweisungen geführt. Die Installation blieb ungeklärt; ebenso die abweichenden Adressanzeigen. Weder eine Ursache noch eine erfolgreiche Reparatur darf aus diesem Verlauf behauptet werden. Es gibt keinen Beleg für eine Zahlung, eine abgeschlossene Registrierung oder einen Datenverlust.
+The user was guided through an insufficiently checked registration process and inapplicable instructions. The installation remained unresolved, as did the differing address display. The record does not establish a cause or successful repair. There is no evidence of a payment, completed registration, or data loss.
 
-## Quellen und Nachprüfbarkeit
+## Sources and verifiability
 
-Die kurzen Antwort- und Nutzerauszüge stammen aus dem genannten Chat. Der vollständige Chat wird hier nicht öffentlich gespiegelt; die Buildausgaben waren dort als Werkzeugausgaben sichtbar. Die folgenden offiziellen Quellen wurden im Verlauf tatsächlich geöffnet:
+Short user/assistant excerpts come from the chat above. The full chat is not mirrored publicly; build outputs were visible there as tool output. The following official sources were opened during the work:
 
-- [Google: Limited distribution – kostenlos, aber Zahlungsprofil für Namen und Adresse erforderlich](https://developer.android.com/developer-verification/guides/limited-distribution)
-- [Google: Play-Protect-Warntexte, Kategorie Uncommon](https://developers.google.com/android/play-protect/warning-strings)
-- [Google: Anschrift im Zahlungsprofil ändern](https://support.google.com/googlepay/answer/7644076?hl=de)
-- [Google: Play-Console-Registrierung und akzeptierte Karten](https://support.google.com/googleplay/android-developer/answer/6112435)
+- [Google: Limited distribution — free, but a payments profile is required for name and address](https://developer.android.com/developer-verification/guides/limited-distribution)
+- [Google: Play Protect warning strings, Uncommon category](https://developers.google.com/android/play-protect/warning-strings)
+- [Google: Change the address on a payments profile](https://support.google.com/googlepay/answer/7644076?hl=en)
+- [Google: Play Console registration and accepted cards](https://support.google.com/googleplay/android-developer/answer/6112435)
 
-## Erforderliche Korrektur der Arbeitsweise
+## Process correction
 
-Vor einer Kontoempfehlung den vollständigen Registrierungsablauf einschließlich Zahlungsprofil und Gerätefreigabe prüfen. Vor einer Bedienanweisung die tatsächlich vorhandenen Optionen berücksichtigen. Vermutungen nicht als nächsten sicheren Reparaturschritt behandeln. Build, Signatur, Installation, Play-Protect-Bewertung und Nutzerabnahme getrennt ausweisen. Eine ungelöste Ursache klar benennen, ohne den Nutzer wiederholt durch unbestätigte Wege zu schicken.
+Before recommending an account, check the complete registration path, including payments profile and device authorization. Before giving a UI instruction, verify that the option exists in the screen the user actually has. Do not turn an unverified guess into the next supposedly safe fix. Report build, signature, installation, Play Protect assessment, and user acceptance separately. State an unresolved cause clearly instead of repeatedly sending the user through unconfirmed paths.

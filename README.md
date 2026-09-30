@@ -17,5 +17,6 @@ Die Berichte sind eine **erste Teilausgabe** aus den zugänglichen CarreraMod- u
 - [008 Pairing-Fehler](incidents/008-pairing-fehler.md)
 - [009 Ziellinien-Warteschlange](incidents/009-ziellinie-queue.md)
 - [010 APK-Verpackungsfehler](incidents/010-apk-groesse.md)
+- [011 Frühe Crash-Builds](incidents/011-fruehe-crash-builds.md)
 
 Zum Prüfzeitpunkt ist Carrera-Mod-App privat; DasSam441/TimTime ist öffentlich. Dieses Archiv ist öffentlich.

@@ -1,28 +1,28 @@
-# Prüfumfang: Chat „Bots für Rennen prüfen“
+# Review scope: chat “Check race bots”
 
-Stand 2026-09-30. Vollständig durchblättert wurden alle vom Thread-Werkzeug gelieferten Nutzer- und Assistentennachrichten dieses Chats bis einschließlich des Auftrags, auch den übrigen Chat zu dokumentieren. Werkzeughandlungen wurden gezielt anhand der Chatprotokolle und lokalen Projektdokumentation geprüft; keine vollständige unabhängige Wiederholung aller Tests. Keine Live-Spieltests, neuen Builds oder Änderungen am Spiel für diese Archivierung.
+As of 2026-09-30. I read all user and assistant messages returned by the thread tool through the request to document the rest of the chat. I selectively checked tool actions against the chat logs and local project documentation; I did not independently repeat every test. No live gameplay tests, new game builds, or game changes were performed for this archive.
 
-| Gesprächsphase | Archivierung / Bewertung |
+| Conversation phase | Archive record / assessment |
 |---|---|
-| Ursprünglicher Unity-Bot-Vorschlag und VRC-Vorgeschichte | Fall 028: Vorgeschichte gelesen, aber Lehren nicht ausreichend in Abnahme übersetzt. |
-| Eingrenzung auf Online-Bot, sechs Vornamen, Wechselregeln | Als freigegebener Umfang erfasst; kein eigener belegter Fehler bei den Namen oder der 0/1/2-Regel. Einzelspieler war ausdrücklich zurückgestellt. |
-| Erste Implementierung und Veröffentlichung | Fall 025: viel zu vorsichtiges Tempo; Fall 030: fehlerhafte interne Prüfaufbauten. |
-| Alte Pylonen und Reifen | Fall 029; ursprüngliche Umsetzung teilweise aus anderem Chat, hier korrigiert. |
-| Beschleunigte Mittellinienfassung | Fall 026; kein Rennliniennachweis durch höhere Geschwindigkeit. |
-| Rennlinie und Überholen | Fall 030: konkrete interne Fehler und korrigierte Tests. |
-| Prozentangaben und Drei-Sekunden-Ziel | Fall 027: zu später absoluter Vergleich, Ziel nicht erreicht. |
-| Erneuter Hinweis auf VRC und Frage nach Unity-Werkzeugen | Fall 028; ML-Agents nicht trainiert, Erfolg nicht nachgewiesen. Lizenzkostenantwort kein nachgewiesener eigener Sachfehler. |
-| Freigabe zum Sync-Test | Ausdrücklich autorisierte Veröffentlichung; Prozess/Dateien geprüft, kein Nachweis der Live-Synchronisationsqualität. |
-| APK-Build und fehlgeschlagene Installation | Fall 024 und Fall 031; Build und Signatur bestanden, Gerätetest nicht behauptet, Installation ungelöst. |
-| Registrierung ohne Karte, Zahlungsprofil und alte Adresse | Fall 024; fehlende Voraussetzung, unpassende Profil-ID-Anweisung, Ursache ungeklärt. |
-| Kommunikationskritik und Archivauftrag | Fall 031; erster Bericht zu eng, nun erweitert. |
+| Original Unity bot proposal and VRC history | Report 028: prior attempts were read, but the lessons were not turned into adequate acceptance criteria. |
+| Narrowing to online bot, six first names, and switching rules | Recorded as approved scope; no independently established error in the names or 0/1/2 rule. Single-player was explicitly deferred. |
+| First implementation and publication | Report 025: pace was much too cautious; report 030: internal test setups were wrong. |
+| Old cones and tires | Report 029; part of the earlier implementation came from another chat and was corrected here. |
+| Faster centerline version | Report 026; increased speed did not establish a racing line. |
+| Racing line and overtaking | Report 030: specific internal failures and corrected tests. |
+| Percentage statements and three-second target | Report 027: absolute comparison came too late; target was not reached. |
+| Renewed VRC reference and question about Unity tools | Report 028; ML-Agents was not trained and success was not established. The licensing answer is not a demonstrated factual error by itself. |
+| Approval for a sync test | Explicitly authorized publication; process/files were checked, but live synchronization quality was not established. |
+| APK build and failed installation | Reports 024 and 031; build and signature passed, no device test was claimed, installation remained unresolved. |
+| Registration without a card, payments profile, and old address | Report 024: missing prerequisite, inapplicable profile-ID instruction, cause unresolved. |
+| Communication criticism and archive request | Report 031: first report was too narrow and was later expanded. |
 
-## Nicht als belegter Fehler ausgegeben
+## Not presented as established errors
 
-Keine Belege für erfundene finale Testzahlen, eigenmächtige Änderung der menschlichen Fahrzeugphysik, unerlaubte Live-Spieltests in diesem Chat, bewusste APK-Löschung oder einen APK-Build ohne Auftrag. Die Freigabefragen bei wesentlichen Konzeptänderungen stützten sich auf eine ausdrückliche Nutzervereinbarung; allein ihre Existenz beweist keinen Fehler. Ob ihr Umfang kommunikativ optimal war, ist von dieser Berechtigung getrennt.
+There is no evidence here that final test numbers were fabricated, that human vehicle physics were changed without authorization, that live gameplay tests were performed against the instruction, that the APK was deliberately deleted, or that an APK was built without a request. Approval questions for material concept changes followed an explicit user agreement; their existence alone is not proof of a mistake. Whether their communication was optimal is separate from whether they were authorized.
 
-Die Veröffentlichung zum Sync-Test war keine fachliche Abnahme der Racing-Leistung. Das Drei-Sekunden-Ziel war erst nach der zweiten Botkorrektur ausdrücklich benannt; es wird nicht als von Anfang an zugesagter Wert dargestellt. Unterschiedliche lokale Teststände, Auslieferungen und Nutzerabnahme bleiben getrennt.
+Publication for the sync test was not acceptance of racing performance. The three-second target was stated explicitly only after the second bot revision; it is not represented as a promise from the start. Different local test states, releases, and user acceptance remain separate.
 
-## Quellenlage
+## Evidence available
 
-Primärquelle ist Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`. Relevante Auszüge stehen in den Fallberichten. Ergänzend wurden ONLINE-BOT.md, acceptance-summary.json, protected-source-report.json, data-integrity.json und release-sync.log gelesen. Die VRC-Lesezugriffe bereits im ersten Turn sind in der Werkzeugchronik nachgewiesen. Nicht öffentliche Chats, lokale Evidence-Dateien und private Adressen werden nicht pauschal veröffentlicht. Die öffentlichen Berichte erlauben daher eine Prüfung der wiedergegebenen Auszüge und Argumentation, aber nicht jedem Leser Zugriff auf sämtliche Originalartefakte.
+The primary source is thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`. Relevant excerpts appear in the reports. I also read `ONLINE-BOT.md`, `acceptance-summary.json`, `protected-source-report.json`, `data-integrity.json`, and `release-sync.log`. The tool history records VRC reads in the first turn. Private chats, local evidence files, and private addresses are not reproduced wholesale. Readers can verify the quoted excerpts and reasoning here, but will not necessarily have access to every original artifact.

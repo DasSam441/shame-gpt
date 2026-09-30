@@ -1,21 +1,21 @@
-# 014 — TimTime-Eingriffe blockierten wiederholt Carreras Guest-Login
+# 014 — TimTime interventions repeatedly blocked Carrera’s Guest login
 
-**Befund:** wiederholte fehlgeschlagene Login-/Startansätze, deren Ursachen nicht alle gleich waren.
+**Finding:** repeated failed login/start approaches with causes that were not all the same.
 
-Die Versionsdokumente halten unter anderem fest:
+The version notes record, among other issues:
 
-- 1.2.86: Guest-Crash blieb nach einer Änderung der Racer-Referenz bestehen.
-- 1.2.90: ein Hook auf RacerService.get_CarProfiles konnte vor abgeschlossenem Login in den RacerController schreiben.
-- 1.2.91: bis zu 40 native Hooks wurden vor dem Guest-Klick installiert und blockierten den Login.
-- 1.2.96: die als saubere Basis gedachte Version blockierte Guest weiterhin; der Fehler lag damit nicht an TimTime-API oder Manifest.
-- 1.2.98: Guest blieb blockiert, obwohl der URL-Router-Aufruf entfernt wurde.
-- 1.2.99: API-Routing-Aufrufe waren entfernt, aber der Launcher war weiterhin CarreraApiLogActivity statt des Original-Unity-Launchers.
-- 1.3.0: die RacerService.CarProfiles-Brücke konnte vor dem fertigen Guest-/SaveState-Zustand eingreifen und wurde zurückgezogen.
+- 1.2.86: the Guest crash remained after changing the Racer reference.
+- 1.2.90: a hook on `RacerService.get_CarProfiles` could write to `RacerController` before login completed.
+- 1.2.91: as many as 40 native hooks were installed before the Guest click and blocked login.
+- 1.2.96: the version intended as a clean base still blocked Guest, showing the fault was not the TimTime API or manifest.
+- 1.2.98: Guest remained blocked after the URL-router call was removed.
+- 1.2.99: routing calls were removed, but the launcher was still `CarreraApiLogActivity` instead of the original Unity launcher.
+- 1.3.0: the `RacerService.CarProfiles` bridge could intervene before Guest/SaveState was ready and was withdrawn.
 
-**Technische Erklärung:** Mehrere Varianten griffen in unterschiedliche Punkte eines empfindlichen Ablaufs ein: Activity-Start, Hookinstallation, Login und Aufbau des Racer-Zustands. Ein Hook, der vor dem abgeschlossenen Login läuft, kann Carreras eigenen Zustand verändern oder den Guest-Pfad blockieren. Nicht jeder historische Absturz ist mit derselben Root Cause belegt.
+**Technical explanation:** The variants intervened at different points in a sensitive sequence: Activity startup, hook installation, login, and Racer-state creation. A hook that runs before login completes can alter Carrera’s own state or block Guest. The record does not establish one shared root cause for every historical crash.
 
-**Warum mein Fehler:** Die Folge von Varianten zeigt, dass ich den geschützten Loginpfad zu früh und an zu vielen Stellen als Ansatz für den Import benutzte. Der spätere Projektbefund verlangte, Manifestdaten beim Start nur zu speichern und erst nach belegtem Abschluss des originalen Login-/SaveState-Pfads zu importieren.
+**Why this was my mistake:** The series shows that I used the protected login path too early and at too many points as an import strategy. The later project finding required storing manifest data at startup and importing only after the original login/SaveState path had demonstrably completed.
 
-**Zählgrenze:** Die sieben aufgelisteten Versionen sind einzeln dokumentierte schlechte Zustände, aber keine sieben unabhängig bewiesenen Ursachen. Zusätzlich gibt es in der Serie weitere nicht-freigegebene Zwischenstände.
+**Counting limit:** The seven versions above are documented bad states, not seven independently proven causes. The series also contains other unreleased intermediate builds.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.2.86_GUEST_CRASH_FOLLOWUP.md, 1.2.90_CARPROFILES_LOGINFEHLER.md, 1.2.91_START_HOOK_BLOCKIERT_GUEST.md, 1.2.96_KERNBASIS_RUECKZUG.md, 1.2.98_ROUTER_AUFRUF_ENTFERNT.md, 1.2.99_API_ROUTING_AUFRUFE_ENTFERNT.md und 1.3.0_GUEST_LOGIN_RUECKZUG.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.2.86_GUEST_CRASH_FOLLOWUP.md`, `docs/CARRERAMOD_1.2.90_CARPROFILES_LOGINFEHLER.md`, `docs/CARRERAMOD_1.2.91_START_HOOK_BLOCKIERT_GUEST.md`, `docs/CARRERAMOD_1.2.96_KERNBASIS_RUECKZUG.md`, `docs/CARRERAMOD_1.2.98_ROUTER_AUFRUF_ENTFERNT.md`, `docs/CARRERAMOD_1.2.99_API_ROUTING_AUFRUFE_ENTFERNT.md`, and `docs/CARRERAMOD_1.3.0_GUEST_LOGIN_RUECKZUG.md`.

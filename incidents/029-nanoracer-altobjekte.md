@@ -1,25 +1,25 @@
-# 029: Alte Pylonen und Reifen trotz Entfernungswunsch weiter sichtbar
+# 029 — Old cones and tire stacks remained visible despite the removal request
 
-Stand: 2026-09-30.
+As of 2026-09-30.
 
-## Nutzerbefund und eigene Aussage
+## User finding and my statement
 
-Der Nutzer beanstandete neben dem langsamen Bot, dass alte Pylonen und Reifen trotz vorheriger Anweisung weiterhin vorhanden seien. Ich bestätigte: „Nur die Editor-Knöpfe verschwanden. Im veröffentlichten Streckenpool stecken weiterhin 312 alte Pylonen und 71 Reifenstapel.“
+Along with the slow bot, the user objected that old cones and tire stacks were still present despite an earlier removal instruction. I confirmed: “Only the editor buttons disappeared. The published track pool still contains 312 old cones and 71 tire stacks.”
 
-## Technischer Befund
+## Technical finding
 
-Das Entfernen von Bedienknöpfen entfernt weder gespeicherte Objektinstanzen noch den Code, der diese aus Streckendaten wieder erzeugt. Der sichtbare Istzustand und der gewünschte Zustand „überall weg“ wurden deshalb nicht erreicht. In der ersten gemeinsamen Bot-Veröffentlichung erwähnte ich sogar noch „die drei vergrößerten Pylonen“ als Teil parallel abgestimmter Änderungen.
+Removing UI buttons does not remove stored object instances or the code that recreates them from track data. The visible state therefore did not reach the requested “remove everywhere” state. In the first shared bot release, I even mentioned “the three enlarged cones” as part of parallel changes.
 
-## Verantwortung und Beleggrenze
+## Responsibility and evidence limits
 
-Die ursprüngliche Entfernung beziehungsweise Knopfänderung stammte aus paralleler Projektarbeit. Dieser Chat belegt das verbliebene Problem, meine gemeinsame Release-Kommunikation und die anschließende Korrektur. Er enthält nicht den gesamten ursprünglichen Auftrag und dessen Implementierung. Deshalb wird die Urheberschaft der früheren Teilentfernung nicht pauschal diesem Chat zugeschrieben. Ebenso ist das genaue zeitliche Verhältnis der Vergrößerungs- und Entfernungsanweisungen hier nicht vollständig belegt.
+The original removal/button change came from parallel project work. This chat establishes the remaining problem, my release communication, and the subsequent correction. It does not contain the full original request and implementation. I therefore do not assign authorship of the earlier partial removal wholesale to this chat. The precise timing of the enlargement and removal instructions is also not fully established here.
 
-## Korrektur
+## Correction
 
-Nach ausdrücklicher Freigabe wurden alte Typen `cone` und `tires` aus aktiven Strecken-/Editor-Daten entfernt und ihr erneutes Einlesen beziehungsweise Veröffentlichen unterbunden. Neue Paketobjekte blieben erhalten. Der lokale Nachweis `Evidence/bot-pace-cleanup/data-integrity.json` meldet `remainingLegacyObjects: 0`, erhaltene andere Platzierungen und erhaltene Track-/Ghost-Schlüssel. Der dokumentierte Fehler wurde damit für den geprüften Datenumfang korrigiert; er wird nicht als heute weiterhin vorhanden dargestellt.
+After explicit approval, the old `cone` and `tires` types were removed from active track/editor data and prevented from being read or published again. New package objects were retained. The local record `Evidence/bot-pace-cleanup/data-integrity.json` reports `remainingLegacyObjects: 0`, preserved other placements, and preserved track/ghost keys. The error was corrected for the checked data; it is not represented as still present today.
 
-## Quellen und Grenzen
+## Sources and limits
 
-Quelle: vollständig durchblätterte Nutzer- und Assistentennachrichten im Chat „Bots für Rennen prüfen“, Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, bis zum Auftrag vom 30.09.2026, auch den übrigen Chat zu dokumentieren. Werkzeugprotokolle wurden gezielt geprüft, nicht jeder Build unabhängig wiederholt. Kurze Chatauszüge werden hier als Primärbelege wiedergegeben; der vollständige private Chat wird nicht gespiegelt.
+Source: user and assistant messages in chat “Check race bots,” thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, read through the user’s 2026-09-30 request to document the rest of the chat. Tool records were checked selectively; not every build was independently repeated. Short excerpts are reproduced as primary evidence; the private chat is not mirrored in full.
 
-Zusätzlicher Projektbeleg: [ONLINE-BOT.md am dokumentierten Release-Commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). Dieser Link kann Repository-Zugriff erfordern. Lokale Evidence-Dateien sind keine öffentlich abrufbaren Belege.
+Additional project evidence: [ONLINE-BOT.md at the documented release commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). This link may require repository access. Local evidence files are not publicly accessible.

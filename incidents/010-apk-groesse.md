@@ -1,11 +1,11 @@
-# 010 — Verpackungsfehler verdoppelte beinahe die APK-Größe
+# 010 — A packaging error nearly doubled the APK size
 
-**Befund:** Fehler in 1.6.71, erst beim folgenden Build erkannt.
+**Finding:** defect in 1.6.71, discovered only in the next build.
 
-Die nachträgliche Verpackungsprüfung dokumentiert, dass 1.6.71 zusätzlich so-Bibliotheken als unkomprimierbar markierte. Dadurch wuchs die APK auf rund 299 MB statt der üblichen rund 135 MB. Das Dokument erklärt ausdrücklich, dass 1.6.71 kein gültiger Verpackungsreferenzstand ist; der Fehler wurde beim direkten Vergleich im Build 1.6.72 gefunden.
+The later packaging audit records that 1.6.71 additionally marked `.so` libraries as uncompressed. As a result, the APK grew to about 299 MB instead of the usual 135 MB. The document explicitly says 1.6.71 is not a valid packaging reference; the error was found by direct comparison during build 1.6.72.
 
-**Technisch:** apktool.yml legte für die nativen Bibliotheken eine falsche ZIP-Kompressionsregel fest. Die Anwendung mochte weiterhin starten, aber das Distributionsartefakt wurde mehr als doppelt so groß.
+**Technical explanation:** `apktool.yml` specified an incorrect ZIP compression rule for native libraries. The app might still start, but the distribution artifact became more than twice as large.
 
-**Warum mein Fehler:** Die Abnahme prüfte Signatur, Alignment, DEX und Funktionspfade, übersah aber den Vergleich der Paketgröße und die Abweichung der Kompressionsregeln. Der Bericht nennt die Korrektur erst im Nachfolger.
+**Why this was my mistake:** Acceptance checks covered signature, alignment, DEX, and functional paths, but missed the package-size comparison and the changed compression rules. The report records the correction only in the successor build.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.71_PAIRING_1.4.4_PATH.md, „Nachträglicher Verpackungsbefund“; 2026-08-24.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.71_PAIRING_1.4.4_PATH.md`, “Retrospective packaging finding”; 2026-08-24.

@@ -1,17 +1,17 @@
-# 003 — JSON-Einstellungen ohne Wirkung
+# 003 — JSON settings had no effect
 
-**Befund:** fehlerhaft. CarreraMod 1.6.49 / Code 195.
+**Finding:** defective. CarreraMod 1.6.49 / code 195.
 
-Das spätere Wirkungs-Audit verfolgte JSON-Felder bis zum DEX/Java-Code und nativen Setter. Es fand unter anderem:
-- Root enabled schaltete Mods nicht sicher aus.
-- module_handling-Fachwerte wurden nicht aus JSON gelesen.
-- offtrack_brake.available wurde ignoriert.
-- simulation_plus-Gas-Sprungwerte waren nicht an JSON gebunden.
-- start_min und tx_byte_10 hatten keinen Parser-/Setterpfad.
-- automatic_logging.on_start_min wurde immer auf false gesetzt.
+A later effect audit traced JSON fields through DEX/Java code to native setters. Among its findings:
+- The root `enabled` value did not reliably disable mods.
+- `module_handling` values were not read from JSON.
+- `offtrack_brake.available` was ignored.
+- `simulation_plus` throttle-jump values were not bound to JSON.
+- `start_min` and `tx_byte_10` had no parser/setter path.
+- `automatic_logging.on_start_min` was always set to false.
 
-**Technisch:** Vorhandene Dialoge und JSON-Schlüssel genügen nicht. Der Wert muss vom Parser bis zum wirksamen nativen Aufruf durchgereicht sein; ein fehlender JNI-Pfad oder überschreibender lokaler Wert macht ihn wirkungslos.
+**Technical explanation:** Existing dialogs and JSON keys are not enough. A value must flow from the parser to the effective native call; a missing JNI path or an overriding local value makes it inert.
 
-**Warum mein Fehler:** Die ausgelieferte Oberfläche suggerierte Einstellbarkeit, die das Programm nicht vollständig umsetzte. Erst die feldweise Wirkungsprüfung machte die Lücken sichtbar.
+**Why this was my mistake:** The shipped UI suggested configurability that the program did not fully implement. Only a field-by-field effect check exposed the gaps.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.49_JSON_WIRKUNGS_AUDIT.md; Stand 2026-08-20.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.49_JSON_WIRKUNGS_AUDIT.md`; as of 2026-08-20.

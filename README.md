@@ -1,16 +1,14 @@
-# ShameGPT – belegte Fehler und irreführende Aussagen
+# ShameGPT — evidence-based errors and misleading claims
 
-Dieses Archiv dokumentiert überprüfbare falsche Aussagen, technische Fehlschläge und irreführende Erfolgsdarstellungen. Es bewertet Belege und Ergebnisse, nicht eine unbelegte Absicht zu täuschen.
+This archive documents verifiable false statements, technical mistakes, and misleading claims. It evaluates evidence and outcomes; it does not claim intent to deceive.
 
-Jeder Fall nennt einen kurzen Antwortauszug, den Gegenbeleg, die technische Erklärung und die Grenzen des Befunds. Projektquellen und Builds werden nicht gespiegelt. Private Quellverweise sind nur für Berechtigte lesbar.
+Each report gives a short excerpt or claim, the counter-evidence, a technical explanation, and the limits of what the record establishes. Project source code and private credentials are not reproduced. Private source references are included only where the authorized reader can access them.
 
-Die Berichte sind eine **erste Teilausgabe** aus den zugänglichen CarreraMod- und TimTime-Verläufen; keine vollständige Prüfung und kein Beleg für eine Gesamtzahl. Die CarreraMod-Teilauswertung hat 226 Versionsdokumente per Suchmuster gescannt; sie enthält Fortschrittsberichte und ist keine Zählung von Fehlern. Drei weitere separat belegte Vorfälle sind in Bericht 023 erfasst; einer davon betrifft nur einen gesperrten internen Kandidaten.
+This is a working archive, not a complete audit. The CarreraMod review so far searched 226 version notes; that count includes progress and acceptance reports and is not a count of errors. The 80 findings in report 032 are individual details from notes and chat corrections, not 80 independent root causes. Further evidence remains to be reviewed.
 
-- [Fallindex mit 31 Berichten](INCIDENTS.md)
+- [Incident index (32 reports)](INCIDENTS.md)
+- [Report 032: 80 additional CarreraMod/TimTime findings](incidents/032-carrera-timtime-80-additional-findings.md)
 
-Zum Prüfzeitpunkt ist Carrera-Mod-App privat; DasSam441/TimTime ist öffentlich. Dieses Archiv ist öffentlich.
+The CarreraMod application repository is private as of 2026-09-30. The TimTime repository is public. This archive is public, so reports omit personal account, device, and network identifiers.
 
-Bericht 024 ergänzt den ausdrücklich beauftragten NanoRacer-Fall zur gescheiterten Android-Installationshilfe und Registrierungsberatung. Die ursprüngliche CarreraMod-/TimTime-Teilauswertung bleibt unverändert.
-
-Die Fälle 025–031 ergänzen auf ausdrücklichen Nutzerauftrag die übrigen belegten Fehlerfamilien des NanoRacer-Bot-/Android-Chats: Tempo, Mittellinienfahrt, verspäteter Rekordvergleich, unzureichend genutztes VRC-Vorwissen, Altobjekte, fehlerhafte interne Tests und Kommunikation. [Prüfumfang und offene Grenzen](incidents/nanoracer-chat-pruefumfang-2026-09-30.md). Korrigierte Zwischenfehler werden nicht als weiter bestehende Live-Fehler dargestellt.
-
+Reports 024–031 cover the separately requested NanoRacer work. They remain distinct from the CarreraMod/TimTime archive. See [the NanoRacer chat-review scope and limitations](incidents/nanoracer-chat-pruefumfang-2026-09-30.md).

@@ -28,7 +28,16 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch. Die Fehlerfamilien können meh
 | 022 | CarreraMod | Dalvik-Registerfehler erzeugte zwei nicht startfähige Debug-APKs. |
 | 023 | CarreraMod | 1.6.74 Logger-SIGILL, 1.6.75 abgeschnittener GCHandle, 1.6.76 Multidex-Lücke (interner Kandidat). |
 | 024 | NanoRacer / Android | Installationshilfe erfolglos; Zahlungsprofil-Pflicht zu spät geprüft; unbelegte Adress-/Profilvermutung. |
+| 025 | NanoRacer | [Pauschales 79,2-km/h-Limit; kontaktfreie Runden belegten kein brauchbares Renntempo.](incidents/025-nanoracer-bot-tempolimit.md) |
+| 026 | NanoRacer | [Tempo erhöht, aber weiterhin ausschließlich Mittellinie und zunächst keine Überholplanung.](incidents/026-nanoracer-mittellinienfolger.md) |
+| 027 | NanoRacer | [Zu später Rekordvergleich: sieben von acht Fällen über +3 Sekunden; Prozentformulierung unpräzise.](incidents/027-nanoracer-tempo-benchmark.md) |
+| 028 | NanoRacer / VRC | [VRC-Historie tatsächlich gelesen, Lehren unzureichend umgesetzt; spätere Rückschau zu pauschal.](incidents/028-nanoracer-vrc-vorwissen.md) |
+| 029 | NanoRacer | [Alte Objekte blieben in Daten/Erzeugung; Knopfentfernung allein genügte nicht.](incidents/029-nanoracer-altobjekte.md) |
+| 030 | NanoRacer | [Falsche Hindernis-/Nebeneinander-Fixtures sowie korrigierte Linien- und Überholfehler.](incidents/030-nanoracer-test-und-planungsfehler.md) |
+| 031 | NanoRacer / Archiv | [Repetitive Kommunikation, offene APK-Verfügbarkeit, unpräzise Selbstkritik und zu enger Erstbericht.](incidents/031-nanoracer-kommunikation-und-archiv.md) |
 
 Die 226 gescannten Versionsdokumente enthalten auch Fortschritts- und Abnahmeberichte; die Zahl 226 ist keine Fehlerzahl. Die Fallberichte trennen belegte Fehler, Folgeversuche und offene Ursachen.
 
 [Bericht 024: Android-Installation und Registrierung](incidents/024-nanoracer-android-installation-registrierung.md)
+
+[Prüfumfang des gesamten NanoRacer-Bot-/Android-Chats](incidents/nanoracer-chat-pruefumfang-2026-09-30.md). Die Berichte gruppieren Fehlerfamilien; 31 Berichte bedeutet nicht 31 unabhängige technische Ursachen.

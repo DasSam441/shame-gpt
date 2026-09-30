@@ -1,13 +1,13 @@
-# 002 — Statische Postrace-Portierung klang wie Funktionsnachweis
+# 002 — Static post-race port was presented like proof of functionality
 
-**Befund:** irreführend und später technisch widerlegt. Basis 269.
+**Finding:** misleading and later disproven technically. Baseline: build 269.
 
-Die historische Doku nannte den Parser „vollständig portiert“ und sagte, Carreras Originalablauf bleibe unangetastet. Die spätere Fehlerchronik stellt klar: „vollständig“ beschrieb nur statische Adress- und Paketprüfungen, keine erfolgreiche Laufzeitabnahme. Seit Build 269 wurde kein vollständiger erfolgreicher Weg vom Rennende bis zum TimTime-Eingang belegt; mehrere Builds crashten oder lieferten kein Ergebnis.
+The historical documentation called the parser “fully ported” and said Carrera’s original flow remained untouched. The later failure chronology clarifies that “fully” referred only to static address and package checks, not successful runtime acceptance. No complete successful path from race end to TimTime receipt was demonstrated after build 269; several builds crashed or produced no result.
 
-Ein späterer Crash wurde auf die Verwechslung zweier inkompatibler IL2CPP-Methoden zurückgeführt. Zusätzlich lief ein Parser synchron im Rennende-Aufrufpfad und konnte Carreras Rückkehr blockieren.
+A later crash was traced to confusing two incompatible IL2CPP methods. In addition, a parser ran synchronously in the race-end call path and could block Carrera’s return.
 
-**Technisch:** Binäradressen und APK-Struktur statisch zu prüfen beweist nicht, dass Hook-Zeitpunkt, Datentypen und Laufzeitpfad stimmen. Ein synchroner Hook kann den Originalablauf trotz ausgeführter Originalinstruktionen blockieren.
+**Technical explanation:** Static checks of binary addresses and APK structure do not prove that hook timing, data types, and the runtime path are correct. A synchronous hook can block the original flow even when it executes the original instruction.
 
-**Warum mein Fehler:** Ich stellte statische Integrität so dar, dass sie wie Funktionssicherheit klang. Die Gerätebefunde widerlegten das.
+**Why this was my mistake:** I described static integrity in a way that sounded like functional confidence. Device evidence disproved that implication.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_269_POSTRACE_RUNTIME_FAILURE.md; Commit aa6759016f.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_269_POSTRACE_RUNTIME_FAILURE.md`; commit `aa6759016f`.

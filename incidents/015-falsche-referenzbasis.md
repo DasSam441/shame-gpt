@@ -1,13 +1,13 @@
-# 015 — Als „saubere“ beziehungsweise bekannte Basis ausgegebene APKs blockierten weiter den Login
+# 015 — APKs presented as “clean” or known-good still blocked login
 
-**Befund:** zwei fehlgeschlagene Rebuilds mit unterschiedlichen Integritätsproblemen.
+**Finding:** two failed rebuilds with different integrity problems.
 
-1.3.2 wurde ohne TimTime-Klassen und Hooks aus einer Hersteller-Appstore-Basis gebaut. Guest-Login funktionierte trotzdem nicht. Die vorhandene Herstellerdatei war nur ein Base-Split; der passende Original-ABI-Split fehlte. Die Ursache des Loginfehlers wurde mit diesem Stand nicht abschließend geklärt.
+Version 1.3.2 was built from a manufacturer App Store base without TimTime classes or hooks. Guest login still did not work. The retained manufacturer file was only a base split; the matching original ABI split was missing. That build did not establish the cause of the login failure.
 
-1.3.3 sollte den bekannten funktionierenden CarreraMod-Kern 1.2.49 reproduzieren. Der Guest-Login blieb blockiert. Der spätere DEX-Vergleich zeigte, dass classes2.dex mit CarreraApiLogActivity durch Apktool neu erzeugt und nicht bytegleich zur Referenz war; nur der Vergleich der nativen Bibliotheken hatte zuvor bestanden.
+Version 1.3.3 was intended to reproduce the known-working CarreraMod 1.2.49 core. Guest login remained blocked. A later DEX comparison showed that Apktool had rebuilt `classes2.dex`, containing `CarreraApiLogActivity`, so it was not byte-identical to the reference; only the native library comparison had passed earlier.
 
-**Technische Erklärung:** Eine Basis, die nur aus einem App-Bundle-Base-Split stammt, ist kein vollständiges installierbares Originalpaket. Und bytegleiche Native-Bibliotheken beweisen keinen bytegleichen Java-/DEX-Startpfad. Der Launcher und seine DEX-Datei waren Teil des geschützten Loginpfads.
+**Technical explanation:** A base made only from an App Bundle base split is not a complete installable original package. Matching native libraries do not prove that the Java/DEX startup path is byte-identical. The launcher and its DEX were part of the protected login path.
 
-**Warum mein Fehler:** Ich stellte „saubere“ beziehungsweise „known-good“ Builds als Wiederherstellung des Originalverhaltens hin, bevor alle erforderlichen ABI-Splits und alle DEX-Dateien identisch geprüft waren.
+**Why this was my mistake:** I presented “clean” or “known-good” builds as restoration of original behavior before checking every required ABI split and every DEX file for identity.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.3.2_SAUBERE_BASIS_RUECKZUG.md und docs/CARRERAMOD_1.3.3_KNOWN_GOOD_CORE_RUECKZUG.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.3.2_SAUBERE_BASIS_RUECKZUG.md` and `docs/CARRERAMOD_1.3.3_KNOWN_GOOD_CORE_RUECKZUG.md`.

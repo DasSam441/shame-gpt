@@ -1,37 +1,37 @@
-# Drei weitere unabhängig belegte Abstürze (1.6.74–1.6.76)
+# 023 — Three more independently documented crashes (1.6.74–1.6.76)
 
-Stand: 2026-09-30. Diese drei Befunde sind zusätzliche, konkrete Laufzeitfehler aus dem CarreraMod-Releaseverlauf. Sie sind nicht bloß statische Risiken.
+As of 2026-09-30. These are concrete runtime/package failures in the CarreraMod release history, not merely static risks.
 
-## 1.6.74: Logger stürzte unter Android 17 mit SIGILL ab
+## 1.6.74: logger hit SIGILL on Android 17
 
-**Befund:** Der vollständige Tombstone des betroffenen ARM64-Pixels ordnet den Absturz beim ersten 20-Hz-Takt dem globalen Dobby-Trampolin für Bionics `fputc('\n', stream)` zu. Die App starb vor dem Pairing-HTTP.
+**Finding:** The full tombstone from the affected ARM64 Pixel ties the crash on the first 20-Hz tick to the global Dobby trampoline for Bionic `fputc('\n', stream)`. The app died before the pairing HTTP request.
 
-**Technischer Fehler:** Der Logger veränderte einen globalen libc-Aufrufpfad. Unter der konkret dokumentierten Android-17-Laufzeit führte der Trampolin-Aufruf zur illegalen Instruktion.
+**Technical failure:** The logger changed a global libc call path. On the documented Android 17 runtime, the trampoline call caused an illegal instruction.
 
-**Korrektur:** 1.6.74 entfernte die beiden globalen libc-Hooks und ersetzte sie durch lokale PLT-Slot-Weiterleitung innerhalb der Carrera-Bibliothek. Der Bericht belegt die Ursache und den Codeumbau; die Geräteabnahme des Fixes blieb ausdrücklich offen.
+**Correction:** Version 1.6.74 removed the two global libc hooks and replaced them with local PLT-slot forwarding inside the Carrera library. The report documents the cause and code change; device acceptance of the fix remained explicitly open.
 
-**Quelle:** private Projektdokumentation `docs/CARRERAMOD_1.6.74_ANDROID17_LOGGER_BUILD.md`.
+**Source:** private project note `docs/CARRERAMOD_1.6.74_ANDROID17_LOGGER_BUILD.md`.
 
-## 1.6.75: Collection-Absturz durch abgeschnittene ARM64-GCHandles
+## 1.6.75: collection crash from truncated ARM64 GCHandles
 
-**Befund:** `collectioncrash.log` dokumentiert SIGSEGV auf UnityMain beim erneuten Öffnen/Aktualisieren der Fahrzeug-Collection, in `hooked_load_cars` und `remember_car_collection`. Direkt davor hatte der Abgleich vier Fahrzeuge verarbeitet.
+**Finding:** `collectioncrash.log` records SIGSEGV on UnityMain while reopening/updating the vehicle collection, in `hooked_load_cars` and `remember_car_collection`. The import had processed four vehicles immediately beforehand.
 
-**Technischer Fehler:** Auf ARM64 sind IL2CPP-GCHandles pointerbreit (64 Bit). Die Bridge speicherte Rückgabe, Argumente und Handle-Felder als `uint32_t`, wodurch die oberen 32 Bit abgeschnitten wurden. Der Tombstone zeigte den verkürzten Handle und einen ungültigen Speicherzugriff.
+**Technical failure:** On ARM64, IL2CPP GCHandles are pointer-width (64-bit). The bridge stored return values, arguments, and handle fields as `uint32_t`, truncating the upper 32 bits. The tombstone showed the shortened handle and invalid memory access.
 
-**Korrektur:** 1.6.75 stellte die betroffenen Typen auf `uintptr_t` um und prüfte den 32-Bit-Pfad separat auf unveränderten Code. Das ist ein weiterer bestätigter Laufzeitfehler; der Fixbericht allein belegt keine spätere subjektive Nutzerabnahme.
+**Correction:** Version 1.6.75 changed the affected types to `uintptr_t` and separately checked that the 32-bit path stayed unchanged. A fix report alone does not prove later user acceptance.
 
-**Quelle:** private Projektdokumentation `docs/CARRERAMOD_1.6.75_COLLECTION_GCHANDLE_FIX.md`.
+**Source:** private project note `docs/CARRERAMOD_1.6.75_COLLECTION_GCHANDLE_FIX.md`.
 
-## 1.6.76: Lücke in der Multidex-Reihenfolge ließ die App sofort abstürzen
+## 1.6.76: a Multidex gap caused an immediate app crash
 
-**Befund:** Der interne Vorläufer enthielt `classes20.dex`, aber keine `classes19.dex`. Android ART beendet die Suche nach weiteren DEX-Dateien an der ersten Lücke; die beim Activity-Start benötigte `HornPhysicsDebugControl` wurde nicht geladen und die App stürzte sofort ab.
+**Finding:** The internal predecessor contained `classes20.dex` but no `classes19.dex`. Android ART stopped searching for later DEX files at the gap; `HornPhysicsDebugControl`, needed at Activity startup, could not be loaded and the app crashed immediately.
 
-**Auswirkung:** Der Kandidat wurde gesperrt, nicht als Staging importiert und aus dem TimTime-Eingang entfernt. Die folgende Version 1.6.77 schloss die Sequenz bis `classes19.dex`.
+**Impact:** The candidate was blocked, not imported into staging, and removed from the TimTime intake. The following 1.6.77 version filled the sequence through `classes19.dex`.
 
-**Einordnung:** Das ist ein belegter Fehler in einem gebauten internen Kandidaten, kein bestätigter Auslieferungsfehler. Diese Unterscheidung ist wichtig.
+**Limit:** This is a documented error in a built internal candidate, not a confirmed distribution failure.
 
-**Quelle:** private Projektdokumentation `docs/CARRERAMOD_1.6.77_HORN_PHYSICS_DEX_FIX_BUILD.md`.
+**Source:** private project note `docs/CARRERAMOD_1.6.77_HORN_PHYSICS_DEX_FIX_BUILD.md`.
 
-## Was ich daraus ableite
+## Evidence limit
 
-Das sind drei konkrete Ursachen mit unterschiedlichen Evidenzarten: zwei durch Gerätestacks belegte Abstürze und ein interner Paket-/Startfehler. Die Projektchronik enthält weitere Kandidaten, aber ich zähle sie erst nach Abgleich auf Doppelzählung, tatsächliche Auslieferung und Gerätebefund als eigenständige Fälle. Die Gesamtzahl bisheriger Fehler ist damit weiterhin nicht bestimmt.
+These are three concrete failures with different evidence: two device-stack-confirmed crashes and one internal packaging/startup error. Other candidates in the project history are not counted here without checking for duplicates, actual distribution, and device evidence.

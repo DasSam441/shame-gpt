@@ -1,11 +1,11 @@
-# 009 — Ziellinienereignisse gingen verloren oder liefen in eine alte Session
+# 009 — Finish-line events were lost or sent into an old session
 
-**Befund:** 1.6.68 bestand den statischen Vertrag, scheiterte aber im Gerätetest.
+**Finding:** version 1.6.68 passed static contract checks but failed on-device.
 
-Der dokumentierte 1.6.68-Gerätetest zeigte, dass die aktuelle Überfahrt nicht ankam. Zugleich wurden rund 200 alte Queue-Ereignisse erfolgreich an eine vier Tage alte Session übertragen, die noch als aktiv markiert war. Später wurde festgestellt, dass der Client die aktuelle MAC verwarf, wenn das Java-Fahrzeugmapping noch fehlte; die verwaiste normale Session blockierte außerdem den virtuellen Fallback.
+The documented 1.6.68 device test showed that the current crossing did not arrive. At the same time, about 200 old queued events were successfully sent to a four-day-old session that was still marked active. A later finding showed that the client discarded the current MAC when its Java vehicle mapping was missing; the orphaned regular session also blocked the virtual fallback.
 
-**Technisch:** Persistente Wiederholung war an sich vorgesehen, aber Sessionstatus und Fahrzeugzuordnung passten nicht mehr zum aktuellen Ereignis. Ein erfolgreicher HTTP-Versand alter Queue-Daten bedeutete nicht, dass das neue Event korrekt angekommen oder der Sessionstatus frisch war.
+**Technical explanation:** Persistent retry was intended, but the session state and vehicle mapping no longer matched the current event. Successfully transmitting old queue data did not prove that the new event arrived or that the session state was current.
 
-**Warum mein Fehler:** Ich behandelte Deduplizierung und persistente Queue als ausreichenden Zustellschutz und stellte 1.6.68 als fertige virtuelle Zeitnahme dar, obwohl der vollständige reale Ablauf noch nicht bewiesen war.
+**Why this was my mistake:** I treated deduplication and a persistent queue as sufficient delivery protection and presented 1.6.68 as finished virtual timing before the complete real workflow had been demonstrated.
 
-**Quelle:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.68_VIRTUAL_TARGET_PREP.md und docs/CARRERAMOD_CURRENT_STATE.md; Gerätetest 2026-08-23, Korrektur in 1.6.69.
+**Source:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.68_VIRTUAL_TARGET_PREP.md` and `docs/CARRERAMOD_CURRENT_STATE.md`; device test 2026-08-23, correction in 1.6.69.

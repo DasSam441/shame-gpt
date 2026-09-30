@@ -1,35 +1,35 @@
-# 031: Wiederholte Statusmeldungen, unpräzise Selbstkritik und zu enger Erstbericht
+# 031 — Repetitive status messages, imprecise self-criticism, and an initially narrow archive
 
-Stand: 2026-09-30.
+As of 2026-09-30.
 
-## Android-Build-Kommunikation
+## Android build communication
 
-Während des langen Android-Builds meldete ich wiederholt nahezu denselben Stand: Asset-Import läuft, kein gemeldeter Fehler, noch keine APK; später entsprechend native Kompilierung und Gradle. Beispiele sind „Noch läuft der Android-Import“ und „Der Import läuft weiter“. Diese Meldungen hatten oft geringen zusätzlichen Informationswert. Später verlangte der Nutzer ausdrücklich, nicht mit weiteren langen Erklärungen und unnötigen Schritten belastet zu werden.
+During the long Android build, I repeatedly reported nearly the same status: asset import was running, no error had been reported, and there was no APK yet; later I gave similar updates about native compilation and Gradle. Examples included “Android import is still running” and “The import continues.” These updates often added little information. The user later explicitly asked not to be burdened with more long explanations and unnecessary steps.
 
-Die Werkzeugausgaben belegen einen laufenden Build mit wechselnden Importen, nativen Compilerprozessen und abschließend erfolgreichem Gradle-/Unity-Ergebnis. Lange Dauer oder wenig Logausgabe beweisen keinen Stillstand. Der Kommunikationsfehler besteht in repetitiven Meldungen, nicht in einem nachgewiesenen erfundenen Buildfortschritt.
+Tool outputs show an ongoing build with changing imports, native compiler processes, and a successful final Gradle/Unity result. Long duration or sparse logs do not prove it was stuck. The communication failure was repetitive reporting, not proven fabrication of build progress.
 
-## APK-Verfügbarkeit blieb ungeklärt
+## APK availability remained unresolved
 
-Die APK wurde zunächst erfolgreich erzeugt und über einen lokalen Dateilink angeboten. Später fehlte sie dort; auch eine Suche unter Builds fand keine APK. Ich kündigte an, sie wieder bereitstellen zu müssen, setzte das in diesem Gespräch aber nicht um. Der Fokus wechselte danach auf Registrierung und schließlich Dokumentation. Der Verlust der Datei selbst ist keinem Verursacher nachgewiesen; eine absichtliche Löschung wird nicht behauptet. Die fehlende Verfügbarkeit blieb als offener Teil des Installationsproblems bestehen.
+The APK was initially produced successfully and offered through a local file link. Later it was missing at that path, and a search under Builds found no APK. I said I would need to provide it again but did not do so in this conversation. The focus then shifted to registration and documentation. No cause or responsibility for the file’s absence is established; intentional deletion is not alleged. Availability remained an open part of the installation problem.
 
-## Unpräzise Selbstkritik
+## Imprecise self-criticism
 
-Meine Aussagen „Ich habe dir einen einfachen Weg versprochen“ und „verschwiegene Zahlungsprofil-Voraussetzung“ waren keine präzise Beschreibung aller vorherigen Antworten. Ich hatte an mehreren Stellen Einschränkungen genannt, unter anderem keine Garantie für das Verschwinden der Play-Protect-Warnung. Tatsächlich belegt ist die verspätete Prüfung und unvollständige Beratung, nicht eine nachgewiesene bewusste Verheimlichung. Die Rückschau muss dieselbe Belegdisziplin einhalten wie technische Aussagen.
+My statements “I promised you an easy way” and “withheld payments-profile prerequisite” did not precisely describe all earlier answers. I had mentioned some limitations, including that the warning was not guaranteed to disappear. What is established is that I checked the requirement late and gave incomplete advice, not that I deliberately concealed it. The retrospective must observe the same evidentiary discipline as technical claims.
 
-## Zu enger erster Archivumfang und unnötige Suche
+## Initially narrow archive and unnecessary search
 
-Beim Auftrag zur Dokumentation in „shame ggpt“ suchte ich zunächst lokale Verzeichnisse und Werkzeugangebote, statt den vorhandenen Chat zu prüfen. Erst nach dem Nutzerhinweis fand ich „Clarify shamegpt“ und das Repository. Ich veröffentlichte dann nur Fall 024 zur Android-Installationshilfe. Der Nutzer musste ausdrücklich nachfordern, auch den übrigen Chat zu erfassen. Der erste Auftrag ließ den Umfang sprachlich offen; nach der Nachforderung ist die Erweiterung eindeutig autorisiert. Der zuerst enge Bericht erfüllte jedenfalls nicht den vom Nutzer anschließend klargestellten Gesamtumfang.
+When asked to document errors in “shame ggpt,” I first searched local directories and tool options instead of checking the existing chat. Only after the user’s hint did I find “Clarify shamegpt” and the repository. I then published only case 024 about Android installation support. The user had to ask explicitly for the rest of the chat to be included. The original wording left the scope open; after that correction, the expanded scope was clear. The narrow first report did not meet the subsequently clarified full scope.
 
-## Fehler bei der Archivprüfung
+## Archive verification error
 
-Der erste Veröffentlichungsvorgang für Fall 024 schrieb erfolgreich drei Dateien auf GitHub. Die unmittelbar folgende Prüfung verwendete aber weiterhin den alten Commit als Lesereferenz und erhielt für den neuen Bericht einen Fehler. Danach wurde der tatsächlich neue Stand erneut abgerufen und bestätigt. Das war ein Fehler im Prüfskript, keine gescheiterte oder nur behauptete Veröffentlichung.
+The first publication of case 024 successfully wrote three files to GitHub. The immediate verification still read from the old commit and reported an error for the new report. I then fetched the actual new state and confirmed it. This was a verification-script error, not a failed or falsely claimed publication.
 
-## Ergebnis
+## Finding
 
-Fall 024 plus die jetzt ergänzten Fälle und die Prüfbereichsübersicht decken die ermittelten wesentlichen Fehlerfamilien dieses Chats ab. Keine pauschale Behauptung, jede technische Einzelhandlung sei fehlerhaft oder alle Ursachen seien geklärt. Eine Entschuldigung allein löst weder Installation noch Botqualität.
+Case 024 and the added cases/scope review cover the major error families found in that chat. This is not a blanket claim that every technical action was wrong or every cause is known. An apology alone fixes neither installation nor bot quality.
 
-## Quellen und Grenzen
+## Sources and limits
 
-Quelle: vollständig durchblätterte Nutzer- und Assistentennachrichten im Chat „Bots für Rennen prüfen“, Thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, bis zum Auftrag vom 30.09.2026, auch den übrigen Chat zu dokumentieren. Werkzeugprotokolle wurden gezielt geprüft, nicht jeder Build unabhängig wiederholt. Kurze Chatauszüge werden hier als Primärbelege wiedergegeben; der vollständige private Chat wird nicht gespiegelt.
+Source: user and assistant messages in chat “Check race bots,” thread `01a0ef38-8afc-7a11-8ab3-2d77d367ceb2`, read through the user’s 2026-09-30 request to document the rest of the chat. Tool records were checked selectively; not every build was independently repeated. Short excerpts are reproduced as primary evidence; the private chat is not mirrored in full.
 
-Zusätzlicher Projektbeleg: [ONLINE-BOT.md am dokumentierten Release-Commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). Dieser Link kann Repository-Zugriff erfordern. Lokale Evidence-Dateien sind keine öffentlich abrufbaren Belege.
+Additional project evidence: [ONLINE-BOT.md at the documented release commit](https://github.com/DasSam441/nanoracer-unity/blob/c69d4d28596c6a4583dc49b173a0dccd64938941/Documentation/ONLINE-BOT.md). This link may require repository access. Local evidence files are not publicly accessible.

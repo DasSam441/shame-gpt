@@ -1,13 +1,13 @@
-# 006 — Unity-Buildfähigkeit mit Gerätefunktion vermischt
+# 006 — Unity build support was confused with working device access
 
-**Befund:** unbelegt und zu pauschal.
+**Finding:** unsupported and too broad.
 
-In frühen Antworten plante ich Unity-Ausgaben für Web, Windows, macOS, Android und iOS mit Bluetooth-, NFC- und USB-Adaptern, bevor konkrete Gerätepfade geprüft waren. Der Nutzer musste betonen, dass diese Verbindungen Kernfunktionen sind und wirklich funktionieren müssen.
+In early responses, I planned Unity targets for Web, Windows, macOS, Android, and iOS with Bluetooth, NFC, and USB adapters before checking concrete device paths. The user had to stress that these connections are core functions and must actually work.
 
-Die vorhandenen TimTime-Unterlagen belegen Webfunktionen und Browsergrenzen, aber keinen erfolgreichen Unity-Gerätezugriff auf allen Plattformen. Für reale Gerätekombinationen, besonders WebGL/iOS und USB auf Mobilgeräten, standen Tests noch aus.
+The available TimTime material established web functions and browser limits, but did not establish successful Unity device access across all platforms. Tests for real device combinations, especially WebGL/iOS and USB on mobile, were still open.
 
-**Technisch:** Einen Unity-Build für ein Zielsystem erzeugen zu können beweist nicht, dass dessen APIs, Berechtigungen und Hardwarezugriff die benötigten Abläufe tragen.
+**Technical explanation:** Being able to produce a Unity build for a target does not prove that its APIs, permissions, and hardware access support the required workflows.
 
-**Warum mein Fehler:** Ich vermischte allgemeine Plattformfähigkeit mit projektspezifischem Funktionsnachweis und gab dem Plan mehr Sicherheit, als die Belege hergaben.
+**Why this was my mistake:** I confused general platform capability with project-specific evidence and gave the plan more certainty than the record supported.
 
-**Quelle:** zugänglicher Chat „TimTime auf Unity umstellen“, September 2026; öffentliches DasSam441/TimTime, Stand 2026-09-30. Dieser Fall behauptet nicht, dass Unity solche Clients grundsätzlich nicht bauen kann.
+**Source:** accessible chat “Move TimTime to Unity,” September 2026; public `DasSam441/TimTime`, as of 2026-09-30. This report does not claim Unity cannot build such clients in general.

@@ -1,13 +1,13 @@
-# 016 — Native Bibliotheksersetzung brach vorhandene Funktionen; Folgefix stürzte beim Start ab
+# 016 — Replacing a native library broke existing features; the follow-up crashed at startup
 
-**Befund:** Regression in 1.6.42 und Startblocker in 1.6.43.
+**Finding:** regression in 1.6.42 and startup blocker in 1.6.43.
 
-1.6.42 ersetzte für OFFTRACK BRK die gemeinsame carreraapilog-Bibliothek durch eine ältere Variante. Dieselbe Bibliothek lieferte auch den Zustand für 20-Hz-Logging und BANDEN TEST. Auf dem Gerät startete der Logger nicht; der Hook meldete nicht bereit, und Werte fielen auf Standardwerte zurück.
+Version 1.6.42 replaced the shared `carreraapilog` library with an older variant for OFFTRACK BRK. The same library also provided state for 20-Hz logging and BANDE TEST. On the device, the logger did not start; its hook reported “not ready,” and values fell back to defaults.
 
-1.6.43 sollte OFFTRACK in eine getrennte Brücke verschieben. Der Build stürzte aber sofort beim Start ab. Die dokumentierte Ursache war ein JNI-Namensfehler: Java deklarierte getState/setValues/isEnabled/setEnabled, die Bibliothek exportierte nur die Varianten mit vorangestelltem native. Der erste Aufruf löste UnsatisfiedLinkError aus.
+Version 1.6.43 was intended to move OFFTRACK into a separate bridge, but it crashed immediately at startup. The documented cause was a JNI naming mismatch: Java declared `getState`/`setValues`/`isEnabled`/`setEnabled`, while the library exported only the names prefixed with `native`. The first call raised `UnsatisfiedLinkError`.
 
-**Warum mein Fehler:** Die Reparatur behandelte einen benötigten nativen Export durch Austausch einer ganzen Bibliothek und übersah deren andere Verbraucher. Beim folgenden Build waren kompilierte JNI-Symbole nicht mit den Java-Deklarationen abgeglichen.
+**Why this was my mistake:** The repair addressed one required native export by replacing an entire library and missed its other consumers. In the next build, the compiled JNI symbols were not checked against the Java declarations.
 
-**Technische Grenze:** Die Dokumente belegen beide konkreten Mechanismen. Sie beweisen nicht, dass jede weitere Funktion der jeweiligen APK betroffen war.
+**Technical limit:** The notes establish both concrete mechanisms. They do not prove that every other function in either APK was affected.
 
-**Quellen:** privates DasSam441/Carrera-Mod-App, docs/CARRERAMOD_1.6.42_FUNKTIONS_DEBUG_JSON_AUDIT.md und docs/CARRERAMOD_1.6.43_NATIVE_BOUNDARY_REPAIR.md.
+**Sources:** private `DasSam441/Carrera-Mod-App`, `docs/CARRERAMOD_1.6.42_FUNKTIONS_DEBUG_JSON_AUDIT.md` and `docs/CARRERAMOD_1.6.43_NATIVE_BOUNDARY_REPAIR.md`.

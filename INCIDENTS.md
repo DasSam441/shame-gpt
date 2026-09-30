@@ -36,8 +36,11 @@ Stand 2026-09-30. Kein Vollständigkeitsanspruch. Die Fehlerfamilien können meh
 | 030 | NanoRacer | [Falsche Hindernis-/Nebeneinander-Fixtures sowie korrigierte Linien- und Überholfehler.](incidents/030-nanoracer-test-und-planungsfehler.md) |
 | 031 | NanoRacer / Archiv | [Repetitive Kommunikation, offene APK-Verfügbarkeit, unpräzise Selbstkritik und zu enger Erstbericht.](incidents/031-nanoracer-kommunikation-und-archiv.md) |
 
+| 024 | CarreraMod / TimTime | 80 einzeln nummerierte Detailbefunde aus Versionsnotizen und Chatkorrekturen; nicht 80 unabhängige Grundursachen. |
+
 Die 226 gescannten Versionsdokumente enthalten auch Fortschritts- und Abnahmeberichte; die Zahl 226 ist keine Fehlerzahl. Die Fallberichte trennen belegte Fehler, Folgeversuche und offene Ursachen.
 
 [Bericht 024: Android-Installation und Registrierung](incidents/024-nanoracer-android-installation-registrierung.md)
 
 [Prüfumfang des gesamten NanoRacer-Bot-/Android-Chats](incidents/nanoracer-chat-pruefumfang-2026-09-30.md). Die Berichte gruppieren Fehlerfamilien; 31 Berichte bedeutet nicht 31 unabhängige technische Ursachen.
+
